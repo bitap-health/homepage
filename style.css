@@ -155,28 +155,6 @@ h2 {
 }
 
 /* =====================
-   Cards（事業内容）
-   ===================== */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 6px;
-  padding: 1.5rem;
-}
-
-.card h3 {
-  color: #D97070;
-  margin-bottom: 0.75rem;
-  font-size: 1.05rem;
-}
-
-/* =====================
    実績・メディア
    ===================== */
 .jisseki-list {
@@ -201,9 +179,9 @@ h2 {
   align-items: flex-start;
 }
 
-.media-item p {
-  padding-top: 0.25rem;
+.media-text p {
   color: #444;
+  margin-bottom: 0.25rem;
 }
 
 /* =====================
