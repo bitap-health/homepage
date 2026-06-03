@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 /* =====================
    Reset & Base
@@ -10,15 +10,15 @@
 }
 
 body {
-  font-family: 'Lato', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  color: #333;
+  font-family: Meiryo, Arial, sans-serif;
+  color: #1f2b3e;
   line-height: 1.667;
-  font-size: 14.7px;
+  font-size: 14px;
   background: #fff;
 }
 
 a {
-  color: #D97070;
+  color: #e39e9c;
 }
 
 /* =====================
@@ -65,7 +65,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #D97070;
+  color: #e39e9c;
 }
 
 /* =====================
@@ -79,16 +79,18 @@ nav {
 
 .tagline {
   font-size: 1rem;
-  color: #D97070;
+  color: #e39e9c;
+  font-family: Impact, Arial, sans-serif;
+  font-weight: 400;
   margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
 }
 
 .hero h1 {
   font-size: 2rem;
-  color: #D97070;
+  color: #e39e9c;
+  font-family: Impact, Arial, sans-serif;
+  font-weight: 400;
   margin-bottom: 2.5rem;
-  font-weight: bold;
 }
 
 .hero hr {
@@ -147,11 +149,12 @@ nav {
 
 h2 {
   font-size: 1.5rem;
-  color: #222;
+  color: #000000;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 500;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #ddd;
-  font-weight: bold;
 }
 
 /* =====================
@@ -223,7 +226,7 @@ h2 {
 .sns-btn {
   display: inline-block;
   padding: 0.7rem 2rem;
-  background: #D97070;
+  background: #e39e9c;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -232,7 +235,7 @@ h2 {
 }
 
 .sns-btn:hover {
-  background: #c45f5f;
+  background: #d08a88;
 }
 
 /* =====================
@@ -240,7 +243,7 @@ h2 {
    ===================== */
 .yurai-lead {
   font-weight: bold;
-  color: #D97070;
+  color: #e39e9c;
   margin-bottom: 1rem;
   font-size: 1.05rem;
 }
@@ -266,7 +269,7 @@ h2 {
 }
 
 .profile-role {
-  color: #D97070;
+  color: #e39e9c;
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
 }
@@ -341,7 +344,7 @@ h2 {
 }
 
 .news-card:hover .news-card-title {
-  color: #D97070;
+  color: #e39e9c;
 }
 
 .news-card-img {
@@ -433,7 +436,7 @@ h2 {
 }
 
 .detail-text blockquote {
-  border-left: 3px solid #D97070;
+  border-left: 3px solid #e39e9c;
   padding: 0.5rem 1.25rem;
   margin: 1.5rem 0;
   color: #555;
@@ -479,7 +482,7 @@ h2 {
 
 .privacy-content h3 {
   font-size: 1.05rem;
-  color: #D97070;
+  color: #e39e9c;
   margin: 2rem 0 0.75rem;
 }
 
@@ -516,7 +519,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #D97070;
+  color: #e39e9c;
 }
 
 /* =====================
