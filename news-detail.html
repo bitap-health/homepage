@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お知らせ | 株式会社BitaP</title>
+  <title>お知らせ詳細 | 株式会社BitaP</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,13 +27,13 @@
 
     <section class="page-header">
       <div class="container">
-        <h1>お知らせ</h1>
+        <p><a href="news.html">← お知らせ一覧に戻る</a></p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div id="news-grid" class="news-grid">読み込み中...</div>
+      <div class="container detail-content">
+        <div id="detail-body">読み込み中...</div>
       </div>
     </section>
 
@@ -47,27 +47,33 @@
   </footer>
 
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'), 10);
+
     fetch('news.json')
       .then(res => res.json())
       .then(data => {
-        const grid = document.getElementById('news-grid');
-        grid.innerHTML = data.map((item, index) => {
-          const imgHTML = item.image
-            ? `<img src="${item.image}" alt="${item.title}">`
-            : `<div class="news-card-placeholder"></div>`;
-          return `
-            <a class="news-card" href="news-detail.html?id=${index}">
-              <div class="news-card-img">${imgHTML}</div>
-              <div class="news-card-body">
-                <p class="news-card-date">${item.date}</p>
-                <p class="news-card-title">${item.title}</p>
-              </div>
-            </a>
-          `;
-        }).join('');
+        const item = data[id];
+        if (!item) {
+          document.getElementById('detail-body').innerHTML = '<p>記事が見つかりませんでした。</p>';
+          return;
+        }
+
+        document.title = item.title + ' | 株式会社BitaP';
+
+        const imgHTML = item.image
+          ? `<img class="detail-img" src="${item.image}" alt="${item.title}">`
+          : '';
+
+        document.getElementById('detail-body').innerHTML = `
+          <p class="detail-date">${item.date}</p>
+          <h1 class="detail-title">${item.title}</h1>
+          ${imgHTML}
+          <div class="detail-text">${item.body}</div>
+        `;
       })
       .catch(() => {
-        document.getElementById('news-grid').innerHTML = '<p>お知らせを読み込めませんでした。</p>';
+        document.getElementById('detail-body').innerHTML = '<p>読み込みに失敗しました。</p>';
       });
   </script>
 
