@@ -56,7 +56,7 @@
             ? `<img src="${item.image}" alt="${item.title}">`
             : `<div class="news-card-placeholder"></div>`;
           return `
-            <a class="news-card" href="news-detail.html?id=${index}">
+            <a class="news-card" href="${item.link}">
               <div class="news-card-img">${imgHTML}</div>
               <div class="news-card-body">
                 <p class="news-card-date">${item.date}</p>
