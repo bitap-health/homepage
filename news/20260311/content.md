@@ -19,3 +19,8 @@ https://tokyosuteam.metro.tokyo.lg.jp/event/1796/
 
 【アカデミスト社】
 https://www.corp.academist-cf.com/
+
+<!-- 2col -->
+![登壇の様子](images/20260311_1.jpg)
+![協定事業者賞受賞](images/20260311_2.jpg)
+<!-- /2col -->
