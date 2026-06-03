@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ | 株式会社BitaP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">株式会社BitaP</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="index.html#jisseki">実績</a></li>
+        <li><a href="index.html#sns">公式SNS</a></li>
+        <li><a href="index.html#yurai">社名の由来</a></li>
+        <li><a href="index.html#gaiyou">会社概要</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>お知らせ</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="news-list">読み込み中...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-copy">© 2025 株式会社BitaP</p>
+      <p><a href="news.html">お知らせ</a> | <a href="privacy.html">プライバシーポリシー</a></p>
+    </div>
+  </footer>
+
+  <script>
+    fetch('news.json')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('news-list');
+        list.innerHTML = data.map(item => `
+          <div class="news-item">
+            <span class="news-date">${item.date}</span>
+            <span class="news-title">${item.title}</span>
+          </div>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('news-list').innerHTML = '<p>お知らせを読み込めませんでした。</p>';
+      });
+  </script>
+
+</body>
+</html>

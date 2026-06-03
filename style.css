@@ -1,0 +1,423 @@
+/* =====================
+   Reset & Base
+   ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+a {
+  color: #2d6a4f;
+}
+
+/* =====================
+   Header / Nav
+   ===================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #2d6a4f;
+  white-space: nowrap;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #2d6a4f;
+}
+
+/* =====================
+   Hero
+   ===================== */
+.hero {
+  background: linear-gradient(150deg, #f0f7f4 0%, #e8f5e9 100%);
+  padding: 140px 2rem 80px;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: #2d6a4f;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* =====================
+   Sections
+   ===================== */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-gray {
+  background: #f8f8f8;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #2d6a4f;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2d6a4f;
+}
+
+/* =====================
+   Cards（事業内容）
+   ===================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.card h3 {
+  color: #2d6a4f;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+/* =====================
+   実績・メディア
+   ===================== */
+.jisseki-list {
+  margin-bottom: 2.5rem;
+}
+
+.jisseki-item {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #444;
+}
+
+.media h3 {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.media-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.media-item p {
+  padding-top: 0.25rem;
+  color: #444;
+}
+
+/* =====================
+   Placeholder images
+   ===================== */
+.img-placeholder {
+  background: #e0e0e0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.media-img {
+  width: 200px;
+  height: 130px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 200px;
+}
+
+/* =====================
+   公式SNS
+   ===================== */
+.sns-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sns-btn {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  background: #2d6a4f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.sns-btn:hover {
+  background: #245a41;
+}
+
+/* =====================
+   社名の由来
+   ===================== */
+.yurai-lead {
+  font-weight: bold;
+  color: #2d6a4f;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+#yurai p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* =====================
+   プロフィール
+   ===================== */
+.profile {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-text h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.profile-role {
+  color: #2d6a4f;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.profile-text p {
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+/* =====================
+   会社概要テーブル
+   ===================== */
+.gaiyou-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gaiyou-table th,
+.gaiyou-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.gaiyou-table th {
+  width: 150px;
+  color: #555;
+  font-weight: normal;
+  background: #f0f7f4;
+  white-space: nowrap;
+}
+
+/* =====================
+   ページヘッダー（news / privacy）
+   ===================== */
+.page-header {
+  background: linear-gradient(150deg, #f0f7f4 0%, #e8f5e9 100%);
+  padding: 120px 2rem 3rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #2d6a4f;
+}
+
+/* =====================
+   お知らせ
+   ===================== */
+.news-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: baseline;
+}
+
+.news-date {
+  color: #888;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.news-title {
+  color: #333;
+}
+
+/* =====================
+   プライバシーポリシー
+   ===================== */
+.privacy-content p {
+  margin-bottom: 1.25rem;
+  color: #444;
+}
+
+.privacy-content h3 {
+  font-size: 1.05rem;
+  color: #2d6a4f;
+  margin: 2rem 0 0.75rem;
+}
+
+.privacy-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.privacy-content ol li {
+  margin-bottom: 0.4rem;
+}
+
+/* =====================
+   Footer
+   ===================== */
+footer {
+  background: #2d6a4f;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #a8d5b5;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* =====================
+   レスポンシブ
+   ===================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 160px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-header {
+    padding-top: 180px;
+  }
+
+  .media-item {
+    flex-direction: column;
+  }
+
+  .media-img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 175px;
+  }
+
+  .gaiyou-table th {
+    width: 110px;
+  }
+
+  .news-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
