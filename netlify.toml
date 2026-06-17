@@ -1,0 +1,11 @@
+# Netlify 設定。静的サイトなのでビルドは不要、公開フォルダはリポジトリのルート。
+[build]
+  publish = "."
+  command = ""
+
+# サイト全体に Basic 認証ゲートをかける Edge Function。
+# 正式公開時はこの [[edge_functions]] ブロックと netlify/edge-functions/auth.ts を
+# 削除して push すれば、ゲートは外れます。
+[[edge_functions]]
+  path = "/*"
+  function = "auth"
