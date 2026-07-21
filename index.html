@@ -4,21 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>株式会社BitaP</title>
+  <meta name="description" content="株式会社BitaPは、腸内細菌研究と栄養学にもとづいて、社員食堂のメニュー監修・腸活セミナー・イベントケータリングの設計を行っています。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
     <nav>
-      <div class="logo">株式会社BitaP</div>
+      <div class="logo"><a href="index.html">株式会社BitaP</a></div>
       <ul class="nav-links">
-        <li><a href="index.html">トップ</a></li>
+        <li><a href="#service">事業内容</a></li>
         <li><a href="#jisseki">実績</a></li>
-        <li><a href="#sns">公式SNS</a></li>
-        <li><a href="#gaiyou">会社概要</a></li>
-        <li><a href="#yurai">社名の由来</a></li>
         <li><a href="news.html">お知らせ</a></li>
-        <li><a href="privacy.html">プライバシーポリシー</a></li>
+        <li><a href="#gaiyou">会社概要</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
   </header>
@@ -27,54 +26,133 @@
 
     <!-- ヒーロー -->
     <section class="hero">
-      <p class="tagline">〜口福な食を腸活科学で設計する〜</p>
-      <h1>Bite then appetite peak</h1>
-      <hr>
-      <p class="hero-heading">腸内細菌研究や栄養学に基づいた最高の食事タイムのデザインをします</p>
-      <p class="hero-body">
-        体質のせいで外食のたびに我慢をする。<br>
-        忙しさのせいで食べることに時間を使うことを諦める。<br>
-        食に困っているのに、その困りごとを解決する余裕すらない——<br>
-        そういう状態の人が、世の中にたくさんいることを知っています。<br>
-        だからBitaPは、その人に寄り添って、その人だけの答えを提供したい。
-      </p>
-      <p class="hero-body">
-        働く人の食堂に、食品商品の設計に、食材の選び方に、その答えを埋め込んでいく。<br>
-        それがBitaPです。
-      </p>
+      <div class="hero-inner">
+        <p class="tagline">〜口福な食を腸活科学で設計する〜</p>
+        <h1>Bite then appetite peak</h1>
+        <p class="hero-heading">腸活科学で、<br>食事の時間を設計する。</p>
+        <p class="hero-lead">
+          腸内細菌研究と栄養学にもとづいて、社員食堂のメニュー、セミナー、イベントの food を設計します。<br>
+          制約のある人も、忙しい人も、「ああ美味しかった」と言える食事のために。
+        </p>
+        <div class="hero-actions">
+          <a href="#service" class="btn btn-primary">事業内容を見る</a>
+          <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+        </div>
+      </div>
     </section>
 
-    <!-- 事業実績・メディア -->
+    <!-- 事業内容 -->
+    <section class="section" id="service">
+      <div class="container">
+        <p class="section-label">SERVICE</p>
+        <h2>事業内容</h2>
+        <p class="section-lead">
+          腸内環境は「何かを食べない」ことではなく、「いろいろなものを継続して食べる」ことで整います。<br>
+          BitaPはその考え方を、企業の食堂や商品、イベントのメニューに落とし込みます。
+        </p>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="img-placeholder service-img">事業イメージ画像①<br>（社員食堂）</div>
+            <h3>社員食堂・給食のメニュー監修</h3>
+            <p>腸内細菌の働きに関する論文をもとに、実際に提供されるメニューを監修します。既存のオペレーションを大きく変えずに、腸活の観点を献立へ組み込みます。</p>
+            <a class="service-link" href="news/20250401/">事例を見る →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="img-placeholder service-img">事業イメージ画像②<br>（セミナー）</div>
+            <h3>腸活セミナー・講演</h3>
+            <p>働く人向けのランチョンセミナーなど、研究にもとづいた食事の考え方をお伝えします。明日から実行できる粒度まで具体化してお話しします。</p>
+            <a class="service-link" href="news/20250626/">事例を見る →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="img-placeholder service-img">事業イメージ画像③<br>（ケータリング）</div>
+            <h3>イベントケータリングの監修</h3>
+            <p>カンファレンスや交流イベントで提供する食事を設計します。ベジタリアン対応など、参加者の制約に配慮したメニュー構成にも対応します。</p>
+            <a class="service-link" href="news/20250822/">事例を見る →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 実績・メディア -->
     <section class="section section-gray" id="jisseki">
       <div class="container">
-        <h2>事業実績</h2>
-        <div class="jisseki-list">
-          <div class="jisseki-item"><a href="news/20250401/">社食の腸活フェア監修（ジャパンウェルネス株式会社様）</a></div>
-          <div class="jisseki-item"><a href="news/20250626/">腸活セミナー</a></div>
-          <div class="jisseki-item"><a href="news/20250822/">イベントケータリングメニュー監修</a></div>
-        </div>
+        <p class="section-label">RECORD</p>
+        <h2>実績・メディア</h2>
+
         <div class="media">
           <div class="media-item">
             <div class="img-placeholder media-img">テレビ出演画像<br>（差し替え予定）</div>
             <div class="media-text">
-              <p>【テレビ出演】</p>
-              <p>2025年7月13日</p>
-              <p>「発掘！スタートアップ ヒロミのおはようミーティング」</p>
-              <p>に出演いたしました。</p>
+              <p class="media-tag">テレビ出演</p>
+              <p class="media-date">2025年7月13日</p>
+              <p class="media-title">「発掘！スタートアップ ヒロミのおはようミーティング」に出演いたしました。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="media">
+          <div class="media-item">
+            <div class="img-placeholder media-img">受賞時の写真<br>（差し替え予定）</div>
+            <div class="media-text">
+              <p class="media-tag">登壇・受賞</p>
+              <p class="media-date">2026年3月11日</p>
+              <p class="media-title">東京都主催「TOKYO SUTEAM DEMO DAY 2026」にて登壇し、協定事業者賞を受賞しました。</p>
+              <a class="service-link" href="news/20260311/">詳しく見る →</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 公式SNS -->
-    <section class="section" id="sns">
+    <!-- お知らせ -->
+    <section class="section" id="news">
       <div class="container">
-        <h2>公式SNS</h2>
-        <p class="sns-note">※公式Instagram / X で、健康＆腸内細菌にまつわる情報発信を行っています。チェックもお忘れなく！！</p>
-        <div class="sns-links">
-          <a href="#" class="sns-btn">Instagram</a>
-          <a href="#" class="sns-btn">X（旧Twitter）</a>
+        <p class="section-label">NEWS</p>
+        <h2>お知らせ</h2>
+        <div id="news-grid-top" class="news-grid">読み込み中...</div>
+        <div class="section-more">
+          <a href="news.html" class="btn btn-outline">お知らせをすべて見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社名の由来（要約） -->
+    <section class="section section-gray" id="concept">
+      <div class="container">
+        <p class="section-label">CONCEPT</p>
+        <h2>社名の由来</h2>
+        <p class="concept-lead">「BitaP」は「Bite then appetite peak」の頭文字で、<br>「一口食べれば、ますます箸が進む」という意味です。</p>
+        <p class="concept-body">
+          幼い頃は体質による食の制約があり、大学院では時間もお金もありませんでした。
+          食に困っているのに、その困りごとを解決する余裕すらない——その状態がどれだけ苦しいかを、身をもって知っています。
+        </p>
+        <p class="concept-body">
+          腸内細菌の研究を続ける中で気づいたのは、おいしさと健康は、どちらかを諦めなくていいということ。
+          制約の中でも、ときめく食事はできる。腸活はそのための手段です。
+        </p>
+        <div class="section-more">
+          <a href="concept.html" class="btn btn-outline">創業に込めた思いを読む</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 代表 -->
+    <section class="section" id="profile">
+      <div class="container">
+        <p class="section-label">MESSAGE</p>
+        <h2>代表メッセージ</h2>
+        <div class="profile">
+          <div class="img-placeholder profile-img">代表者写真<br>（差し替え予定）</div>
+          <div class="profile-text">
+            <h3>千葉のどか</h3>
+            <p class="profile-role">代表取締役／理学博士</p>
+            <p>「食事次第で、毎日のハッピー度合いは変わる」というのは想像に難くないと思いますが、毎食毎食大満足して「ごちそうさまでした」と言えている人はどのくらいいるでしょうか。健康、体質、お金、時間、、、あらゆることが私たちのご飯タイムの邪魔をします。</p>
+            <p>誰もが、なるべくたくさん「ああ美味しかった。また頑張ろう。」と思えるように。BitaPは食事起点でサービスを考え、専門知識を活用していきます。</p>
+            <p class="profile-career">2025年3月 東京科学大学 博士後期課程 修了（理学博士）。腸内細菌と健康の関連性を研究。国立研究開発法人医薬基盤・健康・栄養研究所にて「食環境整備推進のための産学官連携共同研究プロジェクト」に参画。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -82,6 +160,7 @@
     <!-- 会社概要 -->
     <section class="section section-gray" id="gaiyou">
       <div class="container">
+        <p class="section-label">COMPANY</p>
         <h2>会社概要</h2>
         <table class="gaiyou-table">
           <tr><th>会社名</th><td>株式会社BitaP</td></tr>
@@ -95,52 +174,23 @@
       </div>
     </section>
 
-    <!-- 代表 -->
-    <section class="section" id="profile">
+    <!-- お問い合わせ -->
+    <section class="section section-cta" id="contact">
       <div class="container">
-        <h2>代表</h2>
-        <div class="profile">
-          <div class="profile-text">
-            <h3>千葉のどか</h3>
-            <p>2025年3月　東京科学大学 博士後期課程 修了（理学博士）</p>
-            <p>腸内細菌と健康の関連性を研究。国立研究開発法人医薬基盤・健康・栄養研究所にて「食環境整備推進のための産学官連携共同研究プロジェクト」に参画経験あり。健康に関する種々のデータ解析を経験。</p>
-            <p>「食事次第で、毎日のハッピー度合いは変わる」</p>
-            <p>というのは想像に難くないと思いますが、毎食毎食大満足して「ごちそうさまでした」と言えている人はどのくらいいるでしょうか。健康、体質、お金、時間、、、あらゆることが私たちのご飯タイムの邪魔をします。</p>
-            <p>誰もが、なるべくたくさん「ああ美味しかった。また頑張ろう。」と思えるように。BitaPは食事起点でサービスを考え、専門知識を活用していきます。</p>
-          </div>
-          <div class="img-placeholder profile-img">代表者写真<br>（差し替え予定）</div>
+        <p class="section-label">CONTACT</p>
+        <h2>お気軽にご相談ください</h2>
+        <p class="cta-lead">
+          社員食堂のメニュー監修、セミナーのご依頼、イベントのケータリング設計など、<br>
+          「こんなことはできますか」という段階のご相談も歓迎しています。
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:info@bitap.co.jp" class="btn btn-primary">メールでお問い合わせ</a>
         </div>
-      </div>
-    </section>
-
-    <!-- 社名の由来 -->
-    <section class="section section-gray" id="yurai">
-      <div class="container">
-        <h2>社名の由来</h2>
-        <p class="yurai-lead">「BitaP」は「Bite then appetite peak」の頭文字で、「一口食べれば、ますます箸が進む」という意味です。</p>
-        <p>幼い頃、私には体質による食の制約がありました。</p>
-        <p>外食に行くたびに、食べたいものを我慢する、他の人と違うものを頼む、<br>
-        思い切って食べて後で体調を崩す——その三択を繰り返していました。</p>
-        <p>食事の時間が、楽しみではなく、やり過ごすものになっていた。</p>
-        <p>大学院の博士課程に入ってからは、別の制約が来ました。<br>
-        時間がない、お金がない。食事に使えるのはコンビニの数百円。<br>
-        栄養のことは気になりながらも、調べる気力も時間もなかった。</p>
-        <p>そういう食生活を続けたら体調を崩し、大事な研究生活に穴が空きました。</p>
-        <p>食に困っているのに、その困りごとを解決する余裕すらない。<br>
-        その状態がどれだけ苦しいか、身をもって知っています。<br>
-        そしてそういう人が、世の中にたくさんいることも。</p>
-        <p>腸内細菌の研究を続ける中で、気づいたことがあります。<br>
-        腸内環境を整えるためには、何かを食べたり食べなかったりするのではなく、<br>
-        「なるべく継続していろんなものを食べること」で実現できる。<br>
-        つまり、おいしさと健康は、どちらかを諦めなくていい。<br>
-        制約の中でも、ときめく食事はできる！</p>
-        <p>だから私は、食に困っている人の隣に座って、その人だけの答えを返したいと思っています。<br>
-        一人ひとりの隣には座れないから、<br>
-        企業の食堂に、商品の設計に、素材の選び方に、その答えを埋め込んでいく。</p>
-        <p>腸活は、その手段です。<br>
-        目的は、あなたの食事がときめくもの（=口福）になること。</p>
-        <p>制約の中でも、食事で人生を120%から200%にしてほしい。<br>
-        それがBitaPをつくった理由です。</p>
+        <p class="cta-sns-note">健康と腸内細菌にまつわる情報は、公式SNSでも発信しています。</p>
+        <div class="sns-links">
+          <a href="#" class="sns-btn">Instagram</a>
+          <a href="#" class="sns-btn">X（旧Twitter）</a>
+        </div>
       </div>
     </section>
 
@@ -148,11 +198,50 @@
 
   <footer>
     <div class="container">
-      <p class="footer-copy">© 2025 株式会社BitaP</p>
+      <p class="footer-logo">株式会社BitaP</p>
+      <p class="footer-nav">
+        <a href="#service">事業内容</a> |
+        <a href="#jisseki">実績</a> |
+        <a href="news.html">お知らせ</a> |
+        <a href="#gaiyou">会社概要</a> |
+        <a href="privacy.html">プライバシーポリシー</a>
+      </p>
       <p>Mail：<a href="mailto:info@bitap.co.jp">info@bitap.co.jp</a></p>
-      <p><a href="news.html">お知らせ</a> | <a href="privacy.html">プライバシーポリシー</a></p>
+      <p class="footer-copy">© 2025 株式会社BitaP</p>
     </div>
   </footer>
+
+  <script>
+    // 画像ファイルが欠落している記事はグレーのプレースホルダーに差し替える
+    function newsImgFallback(img) {
+      const ph = document.createElement('div');
+      ph.className = 'news-card-placeholder';
+      img.replaceWith(ph);
+    }
+
+    fetch('news.json')
+      .then(res => res.json())
+      .then(data => {
+        const grid = document.getElementById('news-grid-top');
+        grid.innerHTML = data.slice(0, 6).map(item => {
+          const imgHTML = item.image
+            ? `<img src="${item.image}" alt="${item.title}" onerror="newsImgFallback(this)">`
+            : `<div class="news-card-placeholder"></div>`;
+          return `
+            <a class="news-card" href="${item.link}">
+              <div class="news-card-img">${imgHTML}</div>
+              <div class="news-card-body">
+                <p class="news-card-date">${item.date}</p>
+                <p class="news-card-title">${item.title}</p>
+              </div>
+            </a>
+          `;
+        }).join('');
+      })
+      .catch(() => {
+        document.getElementById('news-grid-top').innerHTML = '<p>お知らせを読み込めませんでした。</p>';
+      });
+  </script>
 
 </body>
 </html>
