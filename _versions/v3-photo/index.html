@@ -46,14 +46,10 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
 .hero{position:relative; padding:3.5rem 0 0;}
 .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:3.5rem; align-items:center;}
 .hero-visual{position:relative;}
-.hero-photo{
-  width:100%; aspect-ratio:1/.92; object-fit:cover; display:block; position:relative; z-index:1;
-  border-radius:46% 54% 42% 58% / 52% 45% 55% 48%;
-}
+.mv-shot.main{width:100%; aspect-ratio:1/.92; position:relative; z-index:1;}
 .hero-copy{position:relative; padding:3rem 0;}
-/* 右下の小さな楕円写真。文字に重ねず、本文の下に置く */
-.sub-photo{display:block; width:62%; margin:2.4rem 0 0 auto; aspect-ratio:1/.72;
-           object-fit:cover; border-radius:50%; border:6px solid var(--paper);}
+/* 右下の小さな写真。文字には重ねず、本文の下に置く */
+.mv-shot.sub{border:6px solid var(--paper);}
 .hero-copy h1{font-size:2.15rem; font-weight:400; line-height:2.1; letter-spacing:.06em;}
 .hero-copy h1 em{font-style:normal; background:linear-gradient(transparent 66%, var(--sand) 66%);}
 .hero-en{font-size:.95rem; color:var(--rose); margin-bottom:1.4rem;}
@@ -142,7 +138,7 @@ footer a{color:var(--ink-soft);}
 
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr; gap:2rem;}
-  .sub-photo{width:75%; margin:1.5rem auto 0;}
+  .mv-shot.sub{width:75% !important; margin:1.5rem auto 0 !important;}
   .deco-leaf{display:none;}
   .deco-badge{display:none;}
   .cards,.news-grid{grid-template-columns:1fr;}
@@ -155,36 +151,102 @@ footer a{color:var(--ink-soft);}
 }
 
 /* ==========================================================
-   スクロール連動アニメーション
-   参考サイト（Shopify Dawn）の実装値をそのまま踏襲：
-   slideIn 0.6s / cubic-bezier(0,0,.3,1) / 段差75ms /
-   画面に入る50px手前で発火 / ゆっくりズーム / 装飾の常時浮遊
+   参考サイト（yamauchinotori.jp）の読み込み時タイムラインを再現。
+   向こうは GSAP + MorphSVG、こちらは CSS と素のJSで同じ値を組み直している。
+
+   GSAPのイージング → CSSの近似
+     expo.out        cubic-bezier(.16, 1, .3, 1)
+     power2.out      cubic-bezier(.25, .46, .45, .94)
+     back.out(1.45)  cubic-bezier(.34, 1.45, .64, 1)
+     CustomEase(pop) cubic-bezier(.12, .72, .42, 1.08)
+     sine.inOut      cubic-bezier(.37, 0, .63, 1)
    ========================================================== */
 :root{
-  --dur:.6s;
-  --ease:cubic-bezier(0, 0, .3, 1);
+  --e-expo:cubic-bezier(.16, 1, .3, 1);
+  --e-power2:cubic-bezier(.25, .46, .45, .94);
+  --e-back:cubic-bezier(.34, 1.45, .64, 1);
+  --e-pop:cubic-bezier(.12, .72, .42, 1.08);
+  --e-sine:cubic-bezier(.37, 0, .63, 1);
 }
+
+/* --- ヘッダー：y -12px から 0.8秒 --- */
+header{opacity:0; transform:translateY(-12px);}
+.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
+@keyframes hdrIn{to{opacity:1; transform:translateY(0);}}
+
+/* --- 見出し：1行ずつマスクし、1文字ずつ下から。stagger 40ms / back.out(1.45) / 0.7秒 --- */
+.mv-copy .line{display:block; overflow:hidden;}
+.mv-copy .line-inner{display:block;}
+.mv-copy .ch{display:inline-block; opacity:0; transform:translateY(80%); transform-origin:50% 100%;
+             will-change:opacity,transform;}
+.ready .mv-copy .ch{animation:chIn .7s var(--e-back) forwards; animation-delay:var(--d);}
+@keyframes chIn{to{opacity:1; transform:translateY(0);}}
+
+/* --- 主写真：yPercent 30→0（1.2秒 expo.out）＋ scale .6→1（1.65秒 pop）
+       内側の画像は scale 1.5→1（2.3秒）。外枠の形は絶えず変形し続ける --- */
+.mv-shot{opacity:0; transform:translateY(30%) scale(.6); overflow:hidden;
+         border-radius:46% 54% 42% 58% / 52% 45% 55% 48%;
+         animation:blob 9s var(--e-sine) infinite alternate;}
+.mv-shot.sub{transform:translateY(20%) scale(.5);}
+.ready .mv-shot{animation:shotUp 1.2s var(--e-expo) forwards,
+                          shotPop 1.65s var(--e-pop) forwards,
+                          blob 9s var(--e-sine) 1.8s infinite alternate;}
+.ready .mv-shot.sub{animation-delay:.35s, .35s, 2.1s;}
+@keyframes shotUp{to{opacity:1; transform:translateY(0) scale(1);}}
+@keyframes shotPop{to{opacity:1; transform:translateY(0) scale(1);}}
+@keyframes blob{
+  0%  {border-radius:46% 54% 42% 58% / 52% 45% 55% 48%;}
+  50% {border-radius:52% 48% 55% 45% / 44% 56% 44% 56%;}
+  100%{border-radius:43% 57% 48% 52% / 56% 42% 58% 44%;}
+}
+.mv-shot img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.5);}
+.ready .mv-shot img{animation:imgZoom 2.3s var(--e-pop) forwards;}
+.ready .mv-shot.sub img{animation-delay:.35s;}
+@keyframes imgZoom{to{transform:scale(1);}}
+
+/* --- 飾り：scale .98 / yPercent 8 から back.out(1.4)。その後ずっと小刻みに揺れる --- */
+.deco{opacity:0; transform:translateY(8%) scale(.98);}
+.ready .deco{animation:decoIn 1.2s var(--e-back) forwards; animation-delay:var(--d, 1s);}
+@keyframes decoIn{to{opacity:1; transform:translateY(0) scale(1);}}
+.ready .deco.wiggle{animation:decoIn 1.2s var(--e-back) var(--d, 1s) forwards,
+                              wiggle 6s linear 2.4s infinite;}
+/* 参考サイトの homeMvIllust1 をそのまま移植（前半だけ揺れて後半は休む） */
+@keyframes wiggle{
+  0%{transform:rotate(-1deg) translate(-1px,.5px)}
+  5%{transform:rotate(.8deg) translate(.5px,-1px)}
+  10%{transform:rotate(-.7deg) translate(1px,.5px)}
+  15%{transform:rotate(.5deg) translate(-.5px,1px)}
+  20%{transform:rotate(-1.2deg) translate(.5px,-.5px)}
+  25%{transform:rotate(.7deg) translate(-1px,-.5px)}
+  30%{transform:rotate(-.5deg) translateY(1px)}
+  35%{transform:rotate(1deg) translate(.5px)}
+  40%{transform:rotate(0) translate(0)}
+  45%,100%{transform:rotate(0) translate(0)}
+}
+
+/* --- 本文まわりは見出しのあとに続けて出す --- */
+.mv-fade{opacity:0; transform:translateY(1rem);}
+.ready .mv-fade{animation:mvFade .9s var(--e-expo) forwards; animation-delay:var(--d);}
+@keyframes mvFade{to{opacity:1; transform:translateY(0);}}
+
+/* --- 波形：下から迫り上がる（向こうはSVGパスのモーフィング） --- */
+.wave{transform:translateY(40%); opacity:0;}
+.ready .wave{animation:waveIn 1.2s cubic-bezier(.76,0,.24,1) .5s forwards;}
+@keyframes waveIn{to{transform:translateY(0); opacity:1;}}
+
+/* --- 2画面目以降：Dawn の scroll-trigger と同じ（0.6秒 / 段差75ms / 手前50px） --- */
 @keyframes slideIn{0%{transform:translateY(2rem); opacity:.01;} to{transform:translateY(0); opacity:1;}}
-@keyframes fadeIn{0%{opacity:.01;} to{opacity:1;}}
-@keyframes ambient{0%{transform:rotate(0) translate(.5em) rotate(0);} to{transform:rotate(360deg) translate(.5em) rotate(-360deg);}}
-
 .reveal{opacity:.01; transform:translateY(2rem);}
-.reveal.is-in{animation:slideIn var(--dur) var(--ease) forwards;
+.reveal.is-in{animation:slideIn .6s cubic-bezier(0, 0, .3, 1) forwards;
               animation-delay:calc(var(--order, 0) * 75ms);}
-.reveal-fade{opacity:.01;}
-.reveal-fade.is-in{animation:fadeIn var(--dur) var(--ease) forwards;
-                   animation-delay:calc(var(--order, 0) * 75ms);}
 
-/* スクロール量に応じて写真がゆっくり寄る */
+/* --- スクロール量に応じたゆっくりズーム（最大1.2倍） --- */
 .zoomable{--zoom:1; scale:var(--zoom); transition:scale .1s linear;}
 
-/* 装飾はゆっくり漂わせる */
-.ambient{animation:ambient 30s linear infinite;}
-
 @media (prefers-reduced-motion: reduce){
-  .reveal,.reveal-fade{opacity:1; transform:none; animation:none;}
+  header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.wave,.reveal{
+    opacity:1 !important; transform:none !important; animation:none !important;}
   .zoomable{scale:1;}
-  .ambient{animation:none;}
 }
 </style>
 </head>
@@ -206,28 +268,32 @@ footer a{color:var(--ink-soft);}
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-visual" data-reveal-fade>
-        <span class="deco deco-leaf ambient"></span>
-        <img class="hero-photo zoomable" src="../../images/service_catering.png" alt="BitaPが設計した腸活ケータリング">
+      <div class="hero-visual">
+        <span class="deco deco-leaf wiggle" style="--d:1.15s"></span>
+        <div class="mv-shot main zoomable">
+          <img src="../../images/service_catering.png" alt="BitaPが設計した腸活ケータリング">
+        </div>
       </div>
       <div class="hero-copy">
-        <span class="deco deco-badge ambient">🍴</span>
-        <p class="hero-tag" data-reveal style="--order:0">〜口福な食を腸活科学で設計する〜</p>
-        <p class="hero-en en" data-reveal style="--order:1">Bite then appetite peak</p>
-        <h1 class="mincho" data-reveal style="--order:2">
-          腸内細菌研究や栄養学に<br>
-          基づいた<em>最高の食事タイム</em>の<br>
-          デザインをします
+        <span class="deco deco-badge wiggle" style="--d:1s">🍴</span>
+        <p class="hero-tag mv-fade" style="--d:.15s">〜口福な食を腸活科学で設計する〜</p>
+        <p class="hero-en en mv-fade" style="--d:.3s">Bite then appetite peak</p>
+        <h1 class="mincho mv-copy">
+          <span class="line"><span class="line-inner">腸内細菌研究や栄養学に</span></span>
+          <span class="line"><span class="line-inner">基づいた最高の食事タイムの</span></span>
+          <span class="line"><span class="line-inner">デザインをします</span></span>
         </h1>
-        <p class="hero-sub" data-reveal style="--order:3">
+        <p class="hero-sub mv-fade" style="--d:1.25s">
           働く人の食堂に、食品商品の設計に、食材の選び方に。<br>
           その人だけの答えを、食事に埋め込んでいきます。
         </p>
-        <div class="hero-actions" data-reveal style="--order:4">
+        <div class="hero-actions mv-fade" style="--d:1.4s">
           <a class="btn btn-fill" href="#service">事業内容を見る</a>
           <a class="btn btn-line" href="#contact">お問い合わせ</a>
         </div>
-        <img class="sub-photo" data-reveal src="../../images/service_seminar.png" alt="腸活セミナーの様子">
+        <div class="mv-shot sub" style="width:62%; margin:2.4rem 0 0 auto; aspect-ratio:1/.72;">
+          <img src="../../images/service_seminar.png" alt="腸活セミナーの様子">
+        </div>
       </div>
     </div>
   </div>
@@ -380,21 +446,46 @@ footer a{color:var(--ink-soft);}
 </footer>
 
 <script>
-/* ---- 参考サイトと同じ仕組み：IntersectionObserverで画面に入ったら再生 ---- */
-function markup(el){
-  if (el.hasAttribute('data-reveal-fade')) el.classList.add('reveal-fade');
-  else el.classList.add('reveal');
-}
+/* ============================================================
+   参考サイトの読み込み時タイムラインを、GSAPなしで再現する。
+   1) 見出しを1文字ずつ <span> に割り、40ms刻みの遅延を振る
+   2) body に .ready を付けた瞬間に全アニメーションが走り出す
+   3) 2画面目以降は IntersectionObserver（Dawn と同じ条件）
+   ============================================================ */
+
+/* --- 1) 見出しを1文字ずつに割る（参考サイトと同じやり方） --- */
+const COPY_START = 0.55;   // 写真が動き出してから見出しが始まるまで
+const STAGGER    = 0.04;   // 1文字あたり40ms
+let n = 0;
+document.querySelectorAll('.mv-copy .line-inner').forEach((inner) => {
+  const text = inner.textContent.trim();
+  inner.textContent = '';
+  [...text].forEach((c) => {
+    const s = document.createElement('span');
+    s.className = 'ch';
+    s.textContent = c === ' ' ? '\u00A0' : c;
+    s.style.setProperty('--d', (COPY_START + n * STAGGER).toFixed(3) + 's');
+    inner.appendChild(s);
+    n++;
+  });
+});
+
+/* --- 2) 画像の読み込みを待ってから開始（途中で絵が入れ替わらないように） --- */
+function start(){ document.body.classList.add('ready'); }
+const hero = document.querySelector('.mv-shot.main img');
+if (hero && !hero.complete) { hero.addEventListener('load', start); hero.addEventListener('error', start); }
+else { requestAnimationFrame(start); }
+
+/* --- 3) 2画面目以降：画面に入る50px手前で、75ms刻みにずらして出す --- */
 function observe(root){
-  const targets = root.querySelectorAll('[data-reveal], [data-reveal-fade]');
-  targets.forEach(markup);
+  const targets = root.querySelectorAll('[data-reveal]');
+  targets.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
       const el = e.target;
-      // 同じ親の中で何番目か＝ずらして出す順番（参考サイトの data-cascade 相当）
       if (el.hasAttribute('data-cascade')) {
-        const sibs = [...el.parentElement.children].filter(n => n.hasAttribute('data-cascade'));
+        const sibs = [...el.parentElement.children].filter(x => x.hasAttribute('data-cascade'));
         el.style.setProperty('--order', sibs.indexOf(el));
       }
       el.classList.add('is-in');
@@ -404,7 +495,7 @@ function observe(root){
   targets.forEach(t => io.observe(t));
 }
 
-/* ---- スクロール量に応じた微妙なズーム（参考サイトは最大1.2倍） ---- */
+/* --- 4) スクロール量に応じたゆっくりズーム（最大1.2倍） --- */
 function zoom(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const els = [...document.querySelectorAll('.zoomable')];
@@ -420,7 +511,7 @@ function zoom(){
   window.addEventListener('scroll', update, { passive: true });
 }
 
-/* ---- お知らせの読み込み ---- */
+/* --- 5) お知らせの読み込み --- */
 fetch('../../news.json')
   .then(r => r.json())
   .then(d => {
@@ -430,7 +521,7 @@ fetch('../../news.json')
         <p class="date en">${it.date}</p>
         <p class="t">${it.title}</p>
       </a>`).join('');
-    observe(document.getElementById('news-grid'));   // 後から差し込んだ分も監視する
+    observe(document.getElementById('news-grid'));
   })
   .catch(() => { document.getElementById('news-grid').textContent = 'お知らせを読み込めませんでした。'; });
 
