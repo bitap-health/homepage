@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社BitaP｜案B（やまうちの鶏 風）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2f2eb;      /* 生成りの地色 */
+  --sand:#e0dac2;       /* ベージュの帯 */
+  --ink:#3e3b30;        /* 温かみのある濃茶（黒は使わない） */
+  --ink-soft:#6b6656;
+  --olive:#b5a76d;
+  --sage:#c0c09e;
+  --navy:#172351;
+  --pink:#e39e9c;       /* BitaPのブランド色。差し色として少量だけ残す */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:var(--paper); color:var(--ink); line-height:1.9;
+  font-size:16px; -webkit-font-smoothing:antialiased;
+}
+.en{font-family:"Poppins",sans-serif; font-weight:600; letter-spacing:.06em;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 1.5rem;}
+.narrow{max-width:760px; margin:0 auto;}
+
+/* ---------- ヘッダー ---------- */
+header{position:sticky; top:0; z-index:50; background:rgba(242,242,235,.92); backdrop-filter:blur(6px);}
+nav{max-width:1180px; margin:0 auto; padding:1rem 1.5rem; display:flex; align-items:center; gap:2rem;}
+.logo{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink);}
+.logo-mark{width:34px; height:34px; border-radius:50%; background:var(--pink); display:grid; place-items:center; color:#fff; font-size:.9rem;}
+.logo-name{font-size:1.05rem; font-weight:600;}
+.nav-links{margin-left:auto; display:flex; gap:1.6rem; list-style:none;}
+.nav-links a{text-decoration:none; color:var(--ink); font-size:.9rem; padding-bottom:.2rem; border-bottom:2px solid transparent;}
+.nav-links a:hover{border-bottom-color:var(--olive);}
+
+/* ---------- ファーストビュー ---------- */
+.hero{position:relative; overflow:hidden; padding:5rem 0 6rem; text-align:center;}
+.hero .blob{position:absolute; border-radius:50%; opacity:.5; pointer-events:none;}
+.b1{width:340px;height:340px;background:var(--sand);top:-90px;left:-110px;}
+.b2{width:220px;height:220px;background:var(--sage);bottom:-70px;right:-60px;opacity:.45;}
+.b3{width:120px;height:120px;background:var(--pink);top:40px;right:14%;opacity:.22;}
+.hero-tag{font-size:.85rem; color:var(--ink-soft); letter-spacing:.1em; margin-bottom:1.2rem;}
+.hero-en{font-size:1.15rem; color:var(--olive); margin-bottom:2rem;}
+.hero h1{font-size:2.6rem; font-weight:600; line-height:1.6; letter-spacing:.02em; margin-bottom:2rem;}
+.hero h1 em{font-style:normal; background:linear-gradient(transparent 62%, var(--sand) 62%); padding:0 .1em;}
+.hero-body{color:var(--ink-soft); font-size:1rem; margin-bottom:1.6rem;}
+.hero-actions{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2.5rem;}
+.btn{display:inline-block; text-decoration:none; padding:.85rem 2rem; border-radius:999px; font-size:.92rem;}
+.btn-fill{background:var(--navy); color:#fff;}
+.btn-fill:hover{background:#0e1738;}
+.btn-line{border:1.5px solid var(--ink); color:var(--ink);}
+.btn-line:hover{background:var(--ink); color:var(--paper);}
+
+/* ---------- セクション共通 ---------- */
+section.blk{padding:5.5rem 0;}
+.blk-sand{background:var(--sand);}
+.label{font-size:.78rem; color:var(--olive); margin-bottom:.5rem;}
+.blk-sand .label{color:var(--navy);}
+h2.ttl{font-size:1.9rem; font-weight:600; line-height:1.5; margin-bottom:.8rem; letter-spacing:.02em;}
+.ttl-sub{color:var(--ink-soft); font-size:.95rem; margin-bottom:2.8rem;}
+.head-center{text-align:center;}
+
+/* ---------- 事業内容 ---------- */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;}
+.card{background:#fff; border-radius:20px; overflow:hidden; display:flex; flex-direction:column;}
+.card-img{aspect-ratio:4/3; background:var(--paper); display:grid; place-items:center;}
+.card-img img{max-width:100%; max-height:100%; object-fit:contain; display:block;}
+.card-in{padding:1.4rem 1.5rem 1.7rem; flex:1; display:flex; flex-direction:column;}
+.card h3{font-size:1.05rem; margin-bottom:.7rem; font-weight:600;}
+.card p{font-size:.88rem; color:var(--ink-soft); line-height:1.9; flex:1;}
+.card a{margin-top:1.1rem; font-size:.85rem; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--sage); align-self:flex-start;}
+.card a:hover{border-bottom-color:var(--navy);}
+
+/* ---------- 実績 ---------- */
+.rec{display:flex; gap:2rem; align-items:center; background:var(--paper); border-radius:20px; padding:1.6rem; margin-bottom:1.5rem;}
+.rec img{width:300px; border-radius:14px; display:block;}
+.rec-tag{display:inline-block; background:var(--navy); color:#fff; font-size:.72rem; padding:.25rem .8rem; border-radius:999px; margin-bottom:.6rem;}
+.rec-date{font-size:.8rem; color:var(--ink-soft);}
+.rec-ttl{font-size:1.02rem; line-height:1.7; margin-top:.3rem;}
+.rec a{font-size:.85rem; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--sage);}
+
+/* ---------- お知らせ ---------- */
+.news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;}
+.news-card{text-decoration:none; color:inherit; background:#fff; border-radius:20px; overflow:hidden; display:block; transition:transform .25s;}
+.news-card:hover{transform:translateY(-4px);}
+.news-card .thumb{aspect-ratio:4/3; background:var(--paper); display:grid; place-items:center;}
+.news-card .thumb img{max-width:100%; max-height:100%; object-fit:contain;}
+.news-card .body{padding:1.1rem 1.3rem 1.5rem;}
+.news-card .date{font-size:.78rem; color:var(--olive); margin-bottom:.4rem;}
+.news-card .t{font-size:.9rem; line-height:1.7;}
+.more{text-align:center; margin-top:3rem;}
+
+/* ---------- 社名の由来 ---------- */
+.story{text-align:center;}
+.story .lead{font-size:1.15rem; line-height:2.1; margin-bottom:2rem;}
+.story p.body{color:var(--ink-soft); font-size:.95rem; margin-bottom:1.2rem; text-align:left;}
+
+/* ---------- 代表 ---------- */
+.profile{display:flex; gap:3rem; align-items:flex-start;}
+.profile img{width:280px; border-radius:20px; display:block;}
+.profile h3{font-size:1.3rem; margin-bottom:.2rem;}
+.profile .role{color:var(--olive); font-size:.85rem; margin-bottom:1.2rem;}
+.profile p{font-size:.93rem; color:var(--ink-soft); margin-bottom:1rem;}
+.career{font-size:.82rem; border-left:3px solid var(--sand); padding-left:1rem;}
+
+/* ---------- 会社概要 ---------- */
+table{width:100%; border-collapse:collapse; font-size:.92rem;}
+th,td{text-align:left; padding:1rem .5rem; border-bottom:1px solid var(--sage);}
+th{width:150px; font-weight:600; color:var(--ink);}
+td{color:var(--ink-soft);}
+
+/* ---------- お問い合わせ ---------- */
+.cta{background:var(--navy); color:#fff; border-radius:28px; padding:4rem 2rem; text-align:center;}
+.cta h2{font-size:1.7rem; margin-bottom:1rem; font-weight:600;}
+.cta p{opacity:.85; font-size:.95rem; margin-bottom:2rem;}
+.cta .btn-fill{background:#fff; color:var(--navy);}
+.cta .btn-fill:hover{background:var(--sand);}
+.sns{display:flex; gap:1rem; justify-content:center; margin-top:2rem;}
+.sns a{color:#fff; text-decoration:none; font-size:.85rem; border:1px solid rgba(255,255,255,.5); padding:.5rem 1.4rem; border-radius:999px;}
+.sns a:hover{background:rgba(255,255,255,.14);}
+
+/* ---------- フッター ---------- */
+footer{padding:3.5rem 0 2.5rem; text-align:center; font-size:.85rem; color:var(--ink-soft);}
+footer a{color:var(--ink-soft);}
+.fnav{margin:1rem 0; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;}
+
+@media(max-width:860px){
+  .cards,.news-grid{grid-template-columns:1fr;}
+  .rec{flex-direction:column; align-items:stretch;}
+  .rec img{width:100%;}
+  .profile{flex-direction:column;}
+  .profile img{width:200px;}
+  .hero h1{font-size:1.7rem;}
+  .nav-links{gap:.9rem; font-size:.8rem;}
+  nav{flex-wrap:wrap; gap:.8rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="logo" href="#"><span class="logo-mark">🍴</span><span class="logo-name">株式会社BitaP</span></a>
+    <ul class="nav-links">
+      <li><a href="#service">事業内容</a></li>
+      <li><a href="#record">実績</a></li>
+      <li><a href="#news">お知らせ</a></li>
+      <li><a href="#story">BitaPについて</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="wrap">
+    <p class="hero-tag">〜口福な食を腸活科学で設計する〜</p>
+    <p class="hero-en en">Bite then appetite peak</p>
+    <h1>腸内細菌研究や栄養学に基づいた<br><em>最高の食事タイム</em>のデザインをします</h1>
+    <div class="narrow">
+      <p class="hero-body">
+        体質のせいで外食のたびに我慢をする。<br>
+        忙しさのせいで食べることに時間を使うことを諦める。<br>
+        食に困っているのに、その困りごとを解決する余裕すらない——<br>
+        そういう状態の人が、世の中にたくさんいることを知っています。<br>
+        だからBitaPは、その人に寄り添って、その人だけの答えを提供したい。
+      </p>
+      <p class="hero-body">
+        働く人の食堂に、食品商品の設計に、食材の選び方に、その答えを埋め込んでいく。<br>
+        それがBitaPです。
+      </p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-fill" href="#service">事業内容を見る</a>
+      <a class="btn btn-line" href="#contact">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="service">
+  <div class="wrap">
+    <div class="head-center">
+      <p class="label en">Service</p>
+      <h2 class="ttl">会社のごはん、こう変えられます。</h2>
+      <p class="ttl-sub">腸内環境は「何かを食べない」ことではなく、「いろいろなものを継続して食べる」ことで整います。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img"><img src="../../images/service_shokudo.png" alt="社員食堂のメニュー監修"></div>
+        <div class="card-in">
+          <h3>社員食堂・給食のメニュー監修</h3>
+          <p>腸内細菌の働きに関する論文をもとに、実際に提供されるメニューを監修します。既存のオペレーションを大きく変えずに、腸活の観点を献立へ組み込みます。</p>
+          <a href="../../news/20250401/">事例を見る →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="../../images/service_seminar.png" alt="腸活セミナー・講演"></div>
+        <div class="card-in">
+          <h3>腸活セミナー・講演</h3>
+          <p>働く人向けのランチョンセミナーなど、研究にもとづいた食事の考え方をお伝えします。明日から実行できる粒度まで具体化してお話しします。</p>
+          <a href="../../news/20250626/">事例を見る →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="../../images/service_catering.png" alt="イベントケータリングの監修"></div>
+        <div class="card-in">
+          <h3>イベントケータリングの監修</h3>
+          <p>カンファレンスや交流イベントで提供する食事を設計します。ベジタリアン対応など、参加者の制約に配慮したメニュー構成にも対応します。</p>
+          <a href="../../news/20260313/">事例を見る →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-sand" id="record">
+  <div class="wrap">
+    <div class="head-center">
+      <p class="label en">Record</p>
+      <h2 class="ttl">こんなところで話しています。</h2>
+      <p class="ttl-sub">メディア出演と、登壇・受賞の記録です。</p>
+    </div>
+    <div class="rec">
+      <img src="../../images/tv_appearance.png" alt="テレビ出演">
+      <div>
+        <span class="rec-tag en">TV</span>
+        <p class="rec-date">2025年7月13日</p>
+        <p class="rec-ttl">「発掘！スタートアップ ヒロミのおはようミーティング」に出演いたしました。</p>
+      </div>
+    </div>
+    <div class="rec">
+      <img src="../../images/award_suteam.png" alt="登壇・受賞">
+      <div>
+        <span class="rec-tag en">Award</span>
+        <p class="rec-date">2026年3月11日</p>
+        <p class="rec-ttl">東京都主催「TOKYO SUTEAM DEMO DAY 2026」にて登壇し、協定事業者賞を受賞しました。</p>
+        <p style="margin-top:.6rem"><a href="../../news/20260311/">詳しく見る →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="news">
+  <div class="wrap">
+    <div class="head-center">
+      <p class="label en">Journal</p>
+      <h2 class="ttl">BitaPだより</h2>
+      <p class="ttl-sub">イベント、メディア、事業事例のお知らせです。</p>
+    </div>
+    <div class="news-grid" id="news-grid">読み込み中...</div>
+    <div class="more"><a class="btn btn-line" href="../../news.html">お知らせをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="blk blk-sand" id="story">
+  <div class="wrap narrow story">
+    <p class="label en">Story</p>
+    <h2 class="ttl">社名の由来</h2>
+    <p class="lead">「BitaP」は「Bite then appetite peak」の頭文字で、<br>「一口食べれば、ますます箸が進む」という意味です。</p>
+    <p class="body">幼い頃は体質による食の制約があり、大学院では時間もお金もありませんでした。食に困っているのに、その困りごとを解決する余裕すらない——その状態がどれだけ苦しいかを、身をもって知っています。</p>
+    <p class="body">腸内細菌の研究を続ける中で気づいたのは、おいしさと健康は、どちらかを諦めなくていいということ。制約の中でも、ときめく食事はできる。腸活はそのための手段です。</p>
+    <div class="more"><a class="btn btn-line" href="../../concept.html">創業に込めた思いを読む</a></div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="head-center">
+      <p class="label en">Message</p>
+      <h2 class="ttl">代表メッセージ</h2>
+    </div>
+    <div class="profile">
+      <img src="../../images/profile.png" alt="代表取締役 千葉のどか">
+      <div>
+        <h3>千葉のどか</h3>
+        <p class="role">代表取締役／理学博士</p>
+        <p>「食事次第で、毎日のハッピー度合いは変わる」というのは想像に難くないと思いますが、毎食毎食大満足して「ごちそうさまでした」と言えている人はどのくらいいるでしょうか。健康、体質、お金、時間、、、あらゆることが私たちのご飯タイムの邪魔をします。</p>
+        <p>誰もが、なるべくたくさん「ああ美味しかった。また頑張ろう。」と思えるように。BitaPは食事起点でサービスを考え、専門知識を活用していきます。</p>
+        <p class="career">2025年3月 東京科学大学 博士後期課程 修了（理学博士）。腸内細菌と健康の関連性を研究。国立研究開発法人医薬基盤・健康・栄養研究所にて「食環境整備推進のための産学官連携共同研究プロジェクト」に参画。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-sand">
+  <div class="wrap narrow">
+    <div class="head-center">
+      <p class="label en">Company</p>
+      <h2 class="ttl">会社概要</h2>
+    </div>
+    <table>
+      <tr><th>会社名</th><td>株式会社BitaP</td></tr>
+      <tr><th>住所</th><td>〒108-0014 東京都港区芝四丁目７番６号 芝ビルディング704</td></tr>
+      <tr><th>設立</th><td>2025年6月4日</td></tr>
+      <tr><th>代表取締役</th><td>千葉のどか</td></tr>
+      <tr><th>資本金</th><td>100万円</td></tr>
+      <tr><th>事業内容</th><td>栄養学および腸内細菌研究に基づく食事設計及び提案</td></tr>
+      <tr><th>企業理念</th><td>"Bite then appetite peak　誰もが食を選び、楽しむ"</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="blk" id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <p class="label en" style="color:var(--sage)">Contact</p>
+      <h2>お気軽にご相談ください</h2>
+      <p>社員食堂のメニュー監修、セミナーのご依頼、イベントのケータリング設計など、<br>「こんなことはできますか」という段階のご相談も歓迎しています。</p>
+      <a class="btn btn-fill" href="mailto:info@bitap.co.jp">メールでお問い合わせ</a>
+      <div class="sns">
+        <a href="https://www.instagram.com/bitap_official/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://x.com/NodokaChiiiiiba" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="en" style="font-size:1rem;color:var(--ink)">BitaP Inc.</p>
+    <p class="fnav">
+      <a href="#service">事業内容</a>｜<a href="#record">実績</a>｜<a href="../../news.html">お知らせ</a>｜<a href="../../privacy.html">プライバシーポリシー</a>
+    </p>
+    <p>Mail：<a href="mailto:info@bitap.co.jp">info@bitap.co.jp</a></p>
+    <p style="margin-top:1rem">© 2025 株式会社BitaP</p>
+  </div>
+</footer>
+
+<script>
+fetch('../../news.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('news-grid').innerHTML = d.slice(0, 6).map(it => `
+      <a class="news-card" href="../../${it.link}">
+        <div class="thumb">${it.image ? `<img src="../../${it.image}" alt="">` : ''}</div>
+        <div class="body">
+          <p class="date en">${it.date}</p>
+          <p class="t">${it.title}</p>
+        </div>
+      </a>`).join('');
+  })
+  .catch(() => { document.getElementById('news-grid').textContent = 'お知らせを読み込めませんでした。'; });
+</script>
+</body>
+</html>
