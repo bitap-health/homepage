@@ -50,7 +50,8 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
 .hero-copy{position:relative; padding:3rem 0;}
 /* 右下の小さな写真。文字には重ねず、本文の下に置く */
 .mv-shot.sub{border:6px solid var(--paper);}
-.hero-copy h1{font-size:2.15rem; font-weight:400; line-height:2.1; letter-spacing:.06em;}
+.hero-copy h1{font-size:clamp(20px, 1.85vw, 30px); font-weight:500; line-height:200%;
+              letter-spacing:.1em;}   /* 参考サイトの指定値そのまま */
 .hero-copy h1 em{font-style:normal; background:linear-gradient(transparent 66%, var(--sand) 66%);}
 .hero-en{font-size:.95rem; color:var(--rose); margin-bottom:1.4rem;}
 .hero-tag{font-size:.8rem; color:var(--ink-soft); letter-spacing:.12em; margin-bottom:.5rem;}
@@ -145,7 +146,7 @@ footer a{color:var(--ink-soft);}
   .rec,.rec:nth-child(odd){flex-direction:column;}
   .rec img{width:100%;}
   .profile{flex-direction:column; text-align:center;}
-  .hero-copy h1{font-size:1.55rem; line-height:1.95;}
+  .hero-copy h1{font-size:min(24px, 5.7vw); line-height:200%;}
   .nav-links{gap:1rem;}
   nav{flex-wrap:wrap; gap:.8rem;}
 }
