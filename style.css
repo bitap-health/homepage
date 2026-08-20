@@ -244,11 +244,6 @@ nav {
   margin: 0 auto;
 }
 
-/* 写真を大きく見せるセクションだけ枠を広げる（本文主体の節は900pxのまま） */
-.container-wide {
-  max-width: 1080px;
-}
-
 h2 {
   font-size: 1.5rem;
   color: #000000;
@@ -375,8 +370,8 @@ h2 {
 }
 
 .media-img {
-  width: 380px;
-  height: 247px;
+  width: 200px;
+  height: 130px;
 }
 
 .profile-img {
@@ -623,7 +618,7 @@ img.profile-img {
 .detail-img {
   display: block;
   max-width: 100%;
-  max-height: 660px;
+  max-height: 560px;
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -814,7 +809,7 @@ footer a:hover {
 
   .media-img {
     width: 100%;
-    height: auto;
+    height: 160px;
   }
 
   .profile {
