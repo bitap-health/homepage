@@ -9,6 +9,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* 固定ヘッダー(60px)の下にセクション見出しが潜り込まないよう余白を確保 */
+  scroll-padding-top: 80px;
+}
+
+/* OS側で「視差効果を減らす」を有効にしている人にはアニメーションさせない */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: Meiryo, Arial, sans-serif;
   color: #1f2b3e;
@@ -85,6 +98,39 @@ nav {
 .hero-inner {
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* =====================
+   ヒーローの登場アニメーション
+   ===================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+/* キャッチコピーは1行ずつ動かすため、span をブロック化する */
+.hero-heading .fade-up {
+  display: block;
+}
+
+/* OS側で「視差効果を減らす」を有効にしている人には動かさず表示だけする */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .hero-lead {
@@ -712,6 +758,11 @@ footer a:hover {
    レスポンシブ
    ===================== */
 @media (max-width: 768px) {
+  /* モバイルはナビが2段になりヘッダーが高くなるぶん、余白を増やす */
+  html {
+    scroll-padding-top: 120px;
+  }
+
   nav {
     flex-direction: column;
     height: auto;

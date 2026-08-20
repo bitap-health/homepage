@@ -1,7 +1,7 @@
 ---
-date: 2026/03/11
-title: 【登壇情報】東京都主催「TOKYO SUTEAM DEMO DAY 2026」にて登壇および協定事業者賞を受賞
-thumbnail: 
+date: 2026/03/10
+title: 【登壇情報】TOKYO SUTEAM DEMO DAYに登壇しました
+thumbnail: 20260311_1.png
 ---
 
 株式会社BitaP（本社：東京都、代表取締役：千葉のどか）は、東京都が主催するスタートアップ支援プログラム「TOKYO SUTEAM」の成果発表イベント「TOKYO SUTEAM DEMO DAY 2026」において、登壇および協定事業者賞を受賞いたしました。
@@ -21,6 +21,6 @@ https://tokyosuteam.metro.tokyo.lg.jp/event/1796/
 https://www.corp.academist-cf.com/
 
 <!-- 2col -->
-![登壇の様子](images/20260311_1.jpg)
-![協定事業者賞受賞](images/20260311_2.jpg)
+![](images/20260311_1.png)
+![](images/20260311_2.png)
 <!-- /2col -->

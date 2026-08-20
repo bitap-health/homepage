@@ -1,7 +1,7 @@
 ---
 date: 2025/11/05
-title: ライフサイエンス研究者向けイベント「grubio Meetup Event vol.12」にてケータリング企画を実施
-thumbnail: 20251105_1.jpg
+title: 【事業事例】バイオ系研究者コミュニティイベントでサイエンスケータリング企画を行いました
+thumbnail: 20251105_1.png
 ---
 
 株式会社BitaP（本社：東京都、代表取締役：千葉のどか）は、2025年11月5日に開催された「grubio Meetup Event vol.12」（主催：株式会社grubio）において、メニュー監修・ケータリング企画・運営支援を担当しました。
@@ -51,7 +51,12 @@ BitaPは今後も、科学的知見を活かしたケータリング企画や企
 料理提供：Aun Kitchen （https://aun-kitchen.com/）
 
 <!-- 3col -->
-![](images/20251105_1.jpg)
-![](images/20251105_2.jpg)
-![](images/20251105_3.jpg)
+![](images/20251105_1.png)
+![](images/20251105_2.png)
+![](images/20251105_3.png)
 <!-- /3col -->
+
+<!-- 2col -->
+![](images/20251105_4.png)
+![](images/20251105_5.png)
+<!-- /2col -->

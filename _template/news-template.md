@@ -1,12 +1,13 @@
 # お知らせ記事テンプレート
-# このファイルをコピーして使ってください。「# 」から始まる行はコメントです。
+# このフォルダごとコピーして使ってください。「# 」から始まる行はコメントです。
+# images/ の中の bitap_logo.png は、写真がない記事用の共通サムネイルです。
 
 ---
 date: 2026/06/01
 title: 【事業事例】タイトルをここに書く
-thumbnail: YYYYMMDD_1.jpg
+thumbnail: YYYYMMDD_1.png
 # thumbnail は一覧カードに表示されるメイン画像のファイル名
-# 画像がない場合は空欄のまま → thumbnail: 
+# 写真がない記事は images/bitap_logo.png を YYYYMMDD_1.png にコピーして使う
 ---
 
 # ========================================
@@ -29,30 +30,30 @@ thumbnail: YYYYMMDD_1.jpg
 # 書き方：![](images/ファイル名)
 # 画像は記事フォルダの images/ に入れてください。
 
-![](images/YYYYMMDD_1.jpg)
+![](images/YYYYMMDD_1.png)
 
 
 # --- 画像にキャプション（説明文）をつける ---
 # 書き方：![キャプションテキスト](images/ファイル名)
 
-![当日の様子](images/YYYYMMDD_2.jpg)
+![当日の様子](images/YYYYMMDD_2.png)
 
 
 # --- 画像を2枚横並びにする ---
 # 書き方：下の通りに書く（<!-- 2col -->タグで囲む）
 
 <!-- 2col -->
-![](images/YYYYMMDD_3.jpg)
-![](images/YYYYMMDD_4.jpg)
+![](images/YYYYMMDD_3.png)
+![](images/YYYYMMDD_4.png)
 <!-- /2col -->
 
 
 # --- 画像を3枚横並びにする ---
 
 <!-- 3col -->
-![](images/YYYYMMDD_5.jpg)
-![](images/YYYYMMDD_6.jpg)
-![](images/YYYYMMDD_7.jpg)
+![](images/YYYYMMDD_5.png)
+![](images/YYYYMMDD_6.png)
+![](images/YYYYMMDD_7.png)
 <!-- /3col -->
 
 
@@ -69,7 +70,7 @@ thumbnail: YYYYMMDD_1.jpg
 ---
 date: 2026/04/20
 title: 【事業事例】ベジタリアン対応腸活ランチ＋ミニセミナーを実施しました
-thumbnail: 20260420_1.jpg
+thumbnail: 20260420_1.png
 ---
 
 ## 実施の背景
@@ -80,13 +81,13 @@ thumbnail: 20260420_1.jpg
 
 ベジタリアン対応の腸活ランチを20食提供し、食後に15分のミニセミナーを実施しました。
 
-![](images/20260420_1.jpg)
+![](images/20260420_1.png)
 
 セミナーでは腸内細菌の基礎知識と、日常の食事で実践できる腸活のポイントをお伝えしました。
 
 <!-- 2col -->
-![当日のお弁当](images/20260420_2.jpg)
-![セミナーの様子](images/20260420_3.jpg)
+![当日のお弁当](images/20260420_2.png)
+![セミナーの様子](images/20260420_3.png)
 <!-- /2col -->
 
 ## 参加者の声

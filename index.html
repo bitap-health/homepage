@@ -26,15 +26,19 @@
 
     <!-- ヒーロー -->
     <section class="hero">
+      <!-- fade-up は上から順に遅れて浮かび上がる。遅延は --d で指定 -->
       <div class="hero-inner">
-        <p class="tagline">〜口福な食を腸活科学で設計する〜</p>
-        <h1>Bite then appetite peak</h1>
-        <p class="hero-heading">腸活科学で、<br>食事の時間を設計する。</p>
-        <p class="hero-lead">
+        <p class="tagline fade-up" style="--d:0s">〜口福な食を腸活科学で設計する〜</p>
+        <h1 class="fade-up" style="--d:0.12s">Bite then appetite peak</h1>
+        <p class="hero-heading">
+          <span class="fade-up" style="--d:0.28s">腸活科学で、</span>
+          <span class="fade-up" style="--d:0.42s">食事の時間を設計する。</span>
+        </p>
+        <p class="hero-lead fade-up" style="--d:0.62s">
           腸内細菌研究と栄養学にもとづいて、社員食堂のメニュー、セミナー、イベントの food を設計します。<br>
           制約のある人も、忙しい人も、「ああ美味しかった」と言える食事のために。
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions fade-up" style="--d:0.78s">
           <a href="#service" class="btn btn-primary">事業内容を見る</a>
           <a href="#contact" class="btn btn-outline">お問い合わせ</a>
         </div>

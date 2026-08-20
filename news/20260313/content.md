@@ -1,7 +1,7 @@
 ---
 date: 2026/03/13
 title: 【事業事例】研究者が集うイベントでの“暫定最強腸活”ケータリングを提供しました
-thumbnail: 20260313_1.jpg
+thumbnail: 20260313_1.png
 ---
 
 2026年3月13日、株式会社BitaPは、京橋エドグランで行われた、株式会社tayo様が主催する「WISER GAP FUND 2025 DEMO DAY」において、懇親会のフード提供の企画を担当いたしました。
@@ -75,6 +75,11 @@ BitaPのケータリングにご関心のある方は以下よりぜひご連絡
 お問い合わせフォーム→　https://forms.gle/QPHj2dkgMYtEogHS8
 
 <!-- 2col -->
-![](images/20260313_1.jpg)
-![](images/20260313_2.jpg)
+![](images/20260313_1.png)
+![](images/20260313_2.png)
+<!-- /2col -->
+
+<!-- 2col -->
+![](images/20260313_3.png)
+![](images/20260313_4.png)
 <!-- /2col -->

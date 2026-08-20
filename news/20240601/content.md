@@ -1,7 +1,7 @@
 ---
 date: 2024/06/01
-title: 東京工業大学学生スタートアップ支援
-thumbnail: 
+title: 【採択】東京工業大学学生起業支援プログラムに採択されました
+thumbnail: 20240601_1.png
 ---
 
 東京工業大学「学生スタートアップ支援プログラム Tokyo Tech Startup Challenge 2024」採択のお知らせ

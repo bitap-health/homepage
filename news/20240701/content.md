@@ -1,7 +1,7 @@
 ---
 date: 2024/07/01
-title: 「Tokyo Technology Commercialization Program」採択
-thumbnail: 
+title: 【採択】アクセラレーションプログラムTokyo Technology Cemmercialization Programに採択されました
+thumbnail: 20240701_1.png
 ---
 
 ディープテックスタートアップ起業支援プログラム「Tokyo Technology Commercialization Program」採択のお知らせ
