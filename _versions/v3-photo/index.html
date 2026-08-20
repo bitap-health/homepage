@@ -44,12 +44,16 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
 
 /* ---------- ファーストビュー ---------- */
 .hero{position:relative; padding:3.5rem 0 0;}
-.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center;}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:3.5rem; align-items:center;}
+.hero-visual{position:relative;}
 .hero-photo{
-  width:100%; aspect-ratio:1/.92; object-fit:cover; display:block;
+  width:100%; aspect-ratio:1/.92; object-fit:cover; display:block; position:relative; z-index:1;
   border-radius:46% 54% 42% 58% / 52% 45% 55% 48%;
 }
-.hero-copy{position:relative; padding-bottom:3rem;}
+.hero-copy{position:relative; padding:3rem 0;}
+/* 右下の小さな楕円写真。文字に重ねず、本文の下に置く */
+.sub-photo{display:block; width:62%; margin:2.4rem 0 0 auto; aspect-ratio:1/.72;
+           object-fit:cover; border-radius:50%; border:6px solid var(--paper);}
 .hero-copy h1{font-size:2.15rem; font-weight:400; line-height:2.1; letter-spacing:.06em;}
 .hero-copy h1 em{font-style:normal; background:linear-gradient(transparent 66%, var(--sand) 66%);}
 .hero-en{font-size:.95rem; color:var(--rose); margin-bottom:1.4rem;}
@@ -64,12 +68,11 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
 
 /* 装飾（フラットな小物） */
 .deco{position:absolute; pointer-events:none;}
-.deco-badge{top:-10px; right:4%; width:74px; height:74px; border-radius:50%; background:var(--pink);
+.deco-badge{width:74px; height:74px; border-radius:50%; background:var(--pink);
             display:grid; place-items:center; color:#fff; font-size:1.5rem;}
-.deco-leaf{top:38%; left:-52px; width:120px; height:120px; background:var(--sage); opacity:.5;
+.deco-leaf{top:30%; left:-46px; width:120px; height:120px; background:var(--sage); opacity:.5; z-index:0;
            border-radius:58% 42% 47% 53% / 45% 55% 45% 55%;}
-.deco-oval{position:absolute; right:-2%; bottom:-40px; width:280px; aspect-ratio:1/.72;
-           border-radius:50%; object-fit:cover; border:6px solid var(--paper);}
+.deco-badge{top:.5rem; right:0;}
 
 /* 波の仕切り */
 .wave{display:block; width:100%; height:90px; margin-top:-1px;}
@@ -139,7 +142,8 @@ footer a{color:var(--ink-soft);}
 
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr; gap:2rem;}
-  .deco-oval{position:static; width:60%; margin:1.5rem auto 0; display:block;}
+  .sub-photo{width:75%; margin:1.5rem auto 0;}
+  .deco-leaf{display:none;}
   .deco-badge{display:none;}
   .cards,.news-grid{grid-template-columns:1fr;}
   .rec,.rec:nth-child(odd){flex-direction:column;}
@@ -148,6 +152,39 @@ footer a{color:var(--ink-soft);}
   .hero-copy h1{font-size:1.55rem; line-height:1.95;}
   .nav-links{gap:1rem;}
   nav{flex-wrap:wrap; gap:.8rem;}
+}
+
+/* ==========================================================
+   スクロール連動アニメーション
+   参考サイト（Shopify Dawn）の実装値をそのまま踏襲：
+   slideIn 0.6s / cubic-bezier(0,0,.3,1) / 段差75ms /
+   画面に入る50px手前で発火 / ゆっくりズーム / 装飾の常時浮遊
+   ========================================================== */
+:root{
+  --dur:.6s;
+  --ease:cubic-bezier(0, 0, .3, 1);
+}
+@keyframes slideIn{0%{transform:translateY(2rem); opacity:.01;} to{transform:translateY(0); opacity:1;}}
+@keyframes fadeIn{0%{opacity:.01;} to{opacity:1;}}
+@keyframes ambient{0%{transform:rotate(0) translate(.5em) rotate(0);} to{transform:rotate(360deg) translate(.5em) rotate(-360deg);}}
+
+.reveal{opacity:.01; transform:translateY(2rem);}
+.reveal.is-in{animation:slideIn var(--dur) var(--ease) forwards;
+              animation-delay:calc(var(--order, 0) * 75ms);}
+.reveal-fade{opacity:.01;}
+.reveal-fade.is-in{animation:fadeIn var(--dur) var(--ease) forwards;
+                   animation-delay:calc(var(--order, 0) * 75ms);}
+
+/* スクロール量に応じて写真がゆっくり寄る */
+.zoomable{--zoom:1; scale:var(--zoom); transition:scale .1s linear;}
+
+/* 装飾はゆっくり漂わせる */
+.ambient{animation:ambient 30s linear infinite;}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-fade{opacity:1; transform:none; animation:none;}
+  .zoomable{scale:1;}
+  .ambient{animation:none;}
 }
 </style>
 </head>
@@ -169,26 +206,28 @@ footer a{color:var(--ink-soft);}
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <img class="hero-photo" src="../../images/service_catering.png" alt="BitaPが設計した腸活ケータリング">
+      <div class="hero-visual" data-reveal-fade>
+        <span class="deco deco-leaf ambient"></span>
+        <img class="hero-photo zoomable" src="../../images/service_catering.png" alt="BitaPが設計した腸活ケータリング">
+      </div>
       <div class="hero-copy">
-        <span class="deco deco-badge">🍴</span>
-        <span class="deco deco-leaf"></span>
-        <p class="hero-tag">〜口福な食を腸活科学で設計する〜</p>
-        <p class="hero-en en">Bite then appetite peak</p>
-        <h1 class="mincho">
+        <span class="deco deco-badge ambient">🍴</span>
+        <p class="hero-tag" data-reveal style="--order:0">〜口福な食を腸活科学で設計する〜</p>
+        <p class="hero-en en" data-reveal style="--order:1">Bite then appetite peak</p>
+        <h1 class="mincho" data-reveal style="--order:2">
           腸内細菌研究や栄養学に<br>
           基づいた<em>最高の食事タイム</em>の<br>
           デザインをします
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-reveal style="--order:3">
           働く人の食堂に、食品商品の設計に、食材の選び方に。<br>
           その人だけの答えを、食事に埋め込んでいきます。
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions" data-reveal style="--order:4">
           <a class="btn btn-fill" href="#service">事業内容を見る</a>
           <a class="btn btn-line" href="#contact">お問い合わせ</a>
         </div>
-        <img class="deco-oval" src="../../images/service_seminar.png" alt="腸活セミナーの様子">
+        <img class="sub-photo" data-reveal src="../../images/service_seminar.png" alt="腸活セミナーの様子">
       </div>
     </div>
   </div>
@@ -199,25 +238,25 @@ footer a{color:var(--ink-soft);}
 
 <section class="blk blk-sand" id="service">
   <div class="wrap">
-    <div class="head-center">
+    <div class="head-center" data-reveal>
       <p class="label en">SERVICE</p>
       <h2 class="ttl mincho">会社のごはん、こう変えられます。</h2>
       <p class="ttl-sub">腸内環境は「何かを食べない」ことではなく、「いろいろなものを継続して食べる」ことで整います。</p>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-reveal data-cascade>
         <img class="ph" src="../../images/service_shokudo.png" alt="社員食堂のメニュー監修">
         <h3>社員食堂・給食のメニュー監修</h3>
         <p>腸内細菌の働きに関する論文をもとに、実際に提供されるメニューを監修します。既存のオペレーションを大きく変えずに、腸活の観点を献立へ組み込みます。</p>
         <a href="../../news/20250401/">事例を見る →</a>
       </div>
-      <div class="card">
+      <div class="card" data-reveal data-cascade>
         <img class="ph" src="../../images/service_seminar.png" alt="腸活セミナー・講演">
         <h3>腸活セミナー・講演</h3>
         <p>働く人向けのランチョンセミナーなど、研究にもとづいた食事の考え方をお伝えします。明日から実行できる粒度まで具体化してお話しします。</p>
         <a href="../../news/20250626/">事例を見る →</a>
       </div>
-      <div class="card">
+      <div class="card" data-reveal data-cascade>
         <img class="ph" src="../../images/service_catering.png" alt="イベントケータリングの監修">
         <h3>イベントケータリングの監修</h3>
         <p>カンファレンスや交流イベントで提供する食事を設計します。ベジタリアン対応など、参加者の制約に配慮したメニュー構成にも対応します。</p>
@@ -229,21 +268,21 @@ footer a{color:var(--ink-soft);}
 
 <section class="blk" id="record">
   <div class="wrap">
-    <div class="head-center">
+    <div class="head-center" data-reveal>
       <p class="label en">RECORD</p>
       <h2 class="ttl mincho">こんなところで話しています。</h2>
       <p class="ttl-sub">メディア出演と、登壇・受賞の記録です。</p>
     </div>
-    <div class="rec">
-      <img src="../../images/tv_appearance.png" alt="テレビ出演">
+    <div class="rec" data-reveal>
+      <img class="zoomable" src="../../images/tv_appearance.png" alt="テレビ出演">
       <div>
         <span class="rec-tag en">TV</span>
         <p class="rec-date">2025年7月13日</p>
         <p class="rec-ttl mincho">「発掘！スタートアップ ヒロミのおはようミーティング」に出演いたしました。</p>
       </div>
     </div>
-    <div class="rec">
-      <img src="../../images/award_suteam.png" alt="登壇・受賞">
+    <div class="rec" data-reveal>
+      <img class="zoomable" src="../../images/award_suteam.png" alt="登壇・受賞">
       <div>
         <span class="rec-tag en">AWARD</span>
         <p class="rec-date">2026年3月11日</p>
@@ -256,13 +295,13 @@ footer a{color:var(--ink-soft);}
 
 <section class="blk blk-sand" id="news">
   <div class="wrap">
-    <div class="head-center">
+    <div class="head-center" data-reveal>
       <p class="label en">JOURNAL</p>
       <h2 class="ttl mincho">BitaPだより</h2>
       <p class="ttl-sub">イベント、メディア、事業事例のお知らせです。</p>
     </div>
     <div class="news-grid" id="news-grid">読み込み中...</div>
-    <div class="more"><a class="btn btn-line" href="../../news.html">お知らせをすべて見る</a></div>
+    <div class="more" data-reveal><a class="btn btn-line" href="../../news.html">お知らせをすべて見る</a></div>
   </div>
 </section>
 
@@ -270,20 +309,20 @@ footer a{color:var(--ink-soft);}
   <div class="wrap narrow story">
     <p class="label en">ABOUT</p>
     <h2 class="ttl mincho">社名の由来</h2>
-    <p class="lead mincho">「BitaP」は「Bite then appetite peak」の頭文字で、<br>「一口食べれば、ますます箸が進む」という意味です。</p>
-    <p class="body">幼い頃は体質による食の制約があり、大学院では時間もお金もありませんでした。食に困っているのに、その困りごとを解決する余裕すらない——その状態がどれだけ苦しいかを、身をもって知っています。</p>
-    <p class="body">腸内細菌の研究を続ける中で気づいたのは、おいしさと健康は、どちらかを諦めなくていいということ。制約の中でも、ときめく食事はできる。腸活はそのための手段です。</p>
-    <div class="more"><a class="btn btn-line" href="../../concept.html">創業に込めた思いを読む</a></div>
+    <p class="lead mincho" data-reveal>「BitaP」は「Bite then appetite peak」の頭文字で、<br>「一口食べれば、ますます箸が進む」という意味です。</p>
+    <p class="body" data-reveal>幼い頃は体質による食の制約があり、大学院では時間もお金もありませんでした。食に困っているのに、その困りごとを解決する余裕すらない——その状態がどれだけ苦しいかを、身をもって知っています。</p>
+    <p class="body" data-reveal>腸内細菌の研究を続ける中で気づいたのは、おいしさと健康は、どちらかを諦めなくていいということ。制約の中でも、ときめく食事はできる。腸活はそのための手段です。</p>
+    <div class="more" data-reveal><a class="btn btn-line" href="../../concept.html">創業に込めた思いを読む</a></div>
   </div>
 </section>
 
 <section class="blk blk-sand">
   <div class="wrap">
-    <div class="head-center">
+    <div class="head-center" data-reveal>
       <p class="label en">MESSAGE</p>
       <h2 class="ttl mincho">代表メッセージ</h2>
     </div>
-    <div class="profile">
+    <div class="profile" data-reveal>
       <img src="../../images/profile.png" alt="代表取締役 千葉のどか">
       <div>
         <h3 class="mincho">千葉のどか</h3>
@@ -298,11 +337,11 @@ footer a{color:var(--ink-soft);}
 
 <section class="blk">
   <div class="wrap narrow">
-    <div class="head-center">
+    <div class="head-center" data-reveal>
       <p class="label en">COMPANY</p>
       <h2 class="ttl mincho">会社概要</h2>
     </div>
-    <table>
+    <table data-reveal>
       <tr><th>会社名</th><td>株式会社BitaP</td></tr>
       <tr><th>住所</th><td>〒108-0014 東京都港区芝四丁目７番６号 芝ビルディング704</td></tr>
       <tr><th>設立</th><td>2025年6月4日</td></tr>
@@ -316,7 +355,7 @@ footer a{color:var(--ink-soft);}
 
 <section class="blk" id="contact">
   <div class="wrap">
-    <div class="cta">
+    <div class="cta" data-reveal>
       <p class="label en" style="color:var(--pale)">CONTACT</p>
       <h2 class="mincho">お気軽にご相談ください</h2>
       <p>社員食堂のメニュー監修、セミナーのご依頼、イベントのケータリング設計など、<br>「こんなことはできますか」という段階のご相談も歓迎しています。</p>
@@ -341,17 +380,62 @@ footer a{color:var(--ink-soft);}
 </footer>
 
 <script>
+/* ---- 参考サイトと同じ仕組み：IntersectionObserverで画面に入ったら再生 ---- */
+function markup(el){
+  if (el.hasAttribute('data-reveal-fade')) el.classList.add('reveal-fade');
+  else el.classList.add('reveal');
+}
+function observe(root){
+  const targets = root.querySelectorAll('[data-reveal], [data-reveal-fade]');
+  targets.forEach(markup);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      // 同じ親の中で何番目か＝ずらして出す順番（参考サイトの data-cascade 相当）
+      if (el.hasAttribute('data-cascade')) {
+        const sibs = [...el.parentElement.children].filter(n => n.hasAttribute('data-cascade'));
+        el.style.setProperty('--order', sibs.indexOf(el));
+      }
+      el.classList.add('is-in');
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -50px 0px' });
+  targets.forEach(t => io.observe(t));
+}
+
+/* ---- スクロール量に応じた微妙なズーム（参考サイトは最大1.2倍） ---- */
+function zoom(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = [...document.querySelectorAll('.zoomable')];
+  const seen = (el) => {
+    const vh = window.innerHeight, y = window.scrollY;
+    const top = el.getBoundingClientRect().top + y, hgt = el.offsetHeight;
+    if (top > y + vh) return 0;
+    if (top + hgt < y) return 100;
+    return Math.round((y + vh - top) / ((vh + hgt) / 100));
+  };
+  const update = () => els.forEach(el => el.style.setProperty('--zoom', 1 + 0.002 * seen(el)));
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+/* ---- お知らせの読み込み ---- */
 fetch('../../news.json')
   .then(r => r.json())
   .then(d => {
     document.getElementById('news-grid').innerHTML = d.slice(0, 6).map(it => `
-      <a class="news-card" href="../../${it.link}">
+      <a class="news-card" href="../../${it.link}" data-reveal data-cascade>
         <div class="thumb">${it.image ? `<img src="../../${it.image}" alt="">` : ''}</div>
         <p class="date en">${it.date}</p>
         <p class="t">${it.title}</p>
       </a>`).join('');
+    observe(document.getElementById('news-grid'));   // 後から差し込んだ分も監視する
   })
   .catch(() => { document.getElementById('news-grid').textContent = 'お知らせを読み込めませんでした。'; });
+
+observe(document);
+zoom();
 </script>
 </body>
 </html>

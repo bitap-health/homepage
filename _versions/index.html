@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BitaP サイト デザイン案 一覧</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+     background:#f7f5f4; color:#3d3634; line-height:1.9; padding:3rem 1.5rem 6rem;}
+.wrap{max-width:860px; margin:0 auto;}
+h1{font-size:1.5rem; margin-bottom:.4rem;}
+.sub{color:#7a6d6a; font-size:.9rem; margin-bottom:2.5rem;}
+.item{background:#fff; border-radius:12px; padding:1.6rem 1.8rem; margin-bottom:1.2rem;
+      display:flex; gap:1.5rem; align-items:flex-start; border:1px solid #ece7e5;}
+.no{flex:0 0 44px; height:44px; border-radius:50%; background:#e39e9c; color:#fff;
+    display:grid; place-items:center; font-size:1.05rem; font-weight:600;}
+.body{flex:1;}
+.item h2{font-size:1.1rem; margin-bottom:.3rem;}
+.item .tag{display:inline-block; font-size:.72rem; padding:.15rem .7rem; border-radius:999px;
+           background:#f2eceb; color:#8a7a77; margin-left:.5rem; vertical-align:middle;}
+.item p{font-size:.88rem; color:#6d625f; margin-top:.5rem;}
+.item ul{font-size:.85rem; color:#6d625f; margin:.6rem 0 0 1.1rem;}
+.open{flex:0 0 auto; align-self:center; text-decoration:none; background:#a3595a; color:#fff;
+      padding:.6rem 1.5rem; border-radius:999px; font-size:.88rem; white-space:nowrap;}
+.open:hover{background:#8a4749;}
+.url{display:block; font-size:.75rem; color:#a09592; margin-top:.5rem; word-break:break-all;}
+.note{background:#fff; border:1px dashed #ddd4d2; border-radius:12px; padding:1.3rem 1.6rem;
+      font-size:.85rem; color:#6d625f; margin-top:2rem;}
+.note b{color:#3d3634;}
+@media(max-width:640px){ .item{flex-direction:column;} .open{align-self:stretch; text-align:center;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>BitaP コーポレートサイト デザイン案</h1>
+  <p class="sub">上から順にご覧ください。すべて同じ内容・同じ写真で、見せ方だけを変えています。</p>
+
+  <div class="item">
+    <div class="no">1</div>
+    <div class="body">
+      <h2>現行案<span class="tag">いま作り込んでいるもの</span></h2>
+      <p>白地にピンクを差した、清潔感を軸にした構成。事業内容から入り、実績・お知らせ・会社情報と続きます。</p>
+      <ul><li>読みやすさ最優先。装飾は控えめ</li><li>文字は下から浮かび上がるフェードのみ</li></ul>
+      <span class="url">http://localhost:8899/</span>
+    </div>
+    <a class="open" href="/" target="_blank">開く</a>
+  </div>
+
+  <div class="item">
+    <div class="no">2</div>
+    <div class="body">
+      <h2>案B　やさしい生成り<span class="tag">配色を変えた案</span></h2>
+      <p>白ではなく生成りの地色、黒ではなく温かい濃茶の文字。角を大きく丸め、親しみやすさを出しています。ピンクを主役、緑を補助色に。</p>
+      <ul><li>見出しを「会社のごはん、こう変えられます。」など話しかける調子に</li><li>写真は四角いカードに収める</li></ul>
+      <span class="url">http://localhost:8899/_versions/v2-yamauchi/index.html</span>
+    </div>
+    <a class="open" href="/_versions/v2-yamauchi/index.html" target="_blank">開く</a>
+  </div>
+
+  <div class="item">
+    <div class="no">3</div>
+    <div class="body">
+      <h2>案C　写真が主役<span class="tag">いちばん印象が変わる案</span></h2>
+      <p>写真を丸みのある自然な形に切り抜き、明朝体の見出しと組み合わせた案。スクロールに合わせて要素がすっと現れ、写真がゆっくり寄ります。</p>
+      <ul><li>ファーストビューが写真＋3行コピーの2列構成</li><li>セクションの境目が波形</li><li>ナビが「事業内容 / SERVICE」の2段表示</li></ul>
+      <span class="url">http://localhost:8899/_versions/v3-photo/index.html</span>
+    </div>
+    <a class="open" href="/_versions/v3-photo/index.html" target="_blank">開く</a>
+  </div>
+
+  <div class="item">
+    <div class="no">4</div>
+    <div class="body">
+      <h2>文字の動き 6案<span class="tag">参考資料</span></h2>
+      <p>ファーストビューの文字がどう現れるか、6通りを並べた検討用のページです。デザイン案ではありません。</p>
+      <span class="url">http://localhost:8899/_preview/hero-anim.html</span>
+    </div>
+    <a class="open" href="/_preview/hero-anim.html" target="_blank">開く</a>
+  </div>
+
+  <div class="note">
+    <p><b>ご覧いただくときのお願い</b></p>
+    <p>・案Cはスクロールしながらご覧ください。動きが乗っているのは下へ進んだときです。<br>
+       ・写真はいま手元にあるものを仮に当てています。写真の差し替えを前提にご覧ください。<br>
+       ・スマートフォンでの見え方も、ブラウザの幅を狭めるとその場で確認できます。</p>
+  </div>
+</div>
+</body>
+</html>
