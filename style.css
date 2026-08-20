@@ -386,7 +386,6 @@ img.media-img,
 img.profile-img {
   display: block;
   object-fit: contain;
-  background: #efefef;
   border-radius: 4px;
 }
 
@@ -554,7 +553,6 @@ img.profile-img {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #efefef;
   border-radius: 4px;
   margin-bottom: 0.75rem;
 }
