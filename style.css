@@ -543,6 +543,16 @@ img.profile-img {
   color: inherit;
   display: block;
   cursor: pointer;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+  border-color: #e0d4d3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
 .news-card:hover .news-card-title {
@@ -553,8 +563,13 @@ img.profile-img {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
+  border-radius: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.news-card-body {
+  padding: 0.9rem 1rem 1.1rem;
 }
 
 .news-card-img img {
