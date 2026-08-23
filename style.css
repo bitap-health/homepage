@@ -129,7 +129,7 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
 .story .lead{font-size:1.2rem; line-height:2.2; margin-bottom:2rem;}
 .story p.body{color:var(--ink-soft); font-size:.94rem; margin-bottom:1.2rem; text-align:left;}
 .profile{display:flex; gap:3rem; align-items:center;}
-.profile img{width:300px; height:auto; display:block; flex-shrink:0;}
+.profile img{width:300px; height:auto; border-radius:20px; display:block; flex-shrink:0;}
 .profile h3{font-size:1.3rem; margin-bottom:.2rem;}
 .profile .role{color:var(--rose); font-size:.85rem; margin-bottom:1.2rem;}
 .profile p{font-size:.92rem; color:var(--ink-soft); margin-bottom:1rem;}
