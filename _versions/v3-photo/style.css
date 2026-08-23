@@ -88,7 +88,7 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
 @media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr);}}
 .card{background:#fff; border-radius:20px; overflow:hidden; display:flex; flex-direction:column; text-align:left;}
 .card .card-img{aspect-ratio:4/3; background:var(--paper); display:grid; place-items:center;}
-.card .card-img img{max-width:100%; max-height:100%; object-fit:contain; display:block;}
+.card .card-img img{width:100%; height:100%; object-fit:contain; display:block;}
 .card .card-in{padding:1.3rem 1.4rem 1.6rem; flex:1; display:flex; flex-direction:column;}
 .card h3{font-size:1.02rem; margin-bottom:.6rem; font-weight:600;}
 .card p{font-size:.87rem; color:var(--ink-soft); line-height:1.95; flex:1;}
@@ -112,8 +112,10 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
 .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;}
 .news-card{text-decoration:none; color:inherit; display:block;}
 .news-card .thumb{aspect-ratio:4/3; background:#fff; border-radius:20px; overflow:hidden; display:grid; place-items:center; margin-bottom:.8rem;}
-.news-card .thumb img{max-width:100%; max-height:100%; object-fit:contain;
+/* 写真は枠いっぱいに拡大して余白を作らない。ロゴなどの図版だけ全体を見せる */
+.news-card .thumb img{width:100%; height:100%; object-fit:cover;
                       opacity:0; transition:opacity .45s ease;}
+.news-card .thumb img.fit-contain{object-fit:contain;}
 .news-card .thumb img.is-loaded{opacity:1;}
 .news-card .date{font-size:.78rem; color:var(--leaf); margin-bottom:.3rem;}
 .news-card .t{font-size:.9rem; line-height:1.7;}
