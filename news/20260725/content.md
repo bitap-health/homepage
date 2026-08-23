@@ -1,7 +1,7 @@
 ---
 date: 2026/07/25
 title: 【事業事例】博士課程を食で応援するケータリングを実施！
-thumbnail: 20260725_1.png
+thumbnail: 20260725_1.jpg
 ---
 
 2026年7月25日、株式会社BitaPは、日本橋三井タワーで行われた、株式会社Beyond Next Ventures様が主催する「Visonary Fellows, Summer School 2026」において、懇親会のフード提供の企画を担当いたしました。
@@ -79,11 +79,11 @@ BitaPのケータリングにご関心のある方は以下よりぜひご連絡
 お問い合わせフォーム → https://forms.gle/QPHj2dkgMYtEogHS8
 
 <!-- 2col -->
-![](images/20260725_1.png)
-![](images/20260725_2.png)
+![](images/20260725_1.jpg)
+![](images/20260725_2.jpg)
 <!-- /2col -->
 
 <!-- 2col -->
-![](images/20260725_3.png)
-![](images/20260725_4.png)
+![](images/20260725_3.jpg)
+![](images/20260725_4.jpg)
 <!-- /2col -->
