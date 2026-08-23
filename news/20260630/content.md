@@ -1,7 +1,7 @@
 ---
 date: 2026/06/30
 title: 【事業事例】研究者と企業の会「academmune Meetup」で腸活和ごはんを提供しました
-thumbnail: 20260630_1.png
+thumbnail: 20260630_1.jpg
 ---
 
 2026年6月30日、株式会社BitaPは、目黒区・池尻大橋にて開催された「academmune Meetup #03」において、懇親会フードの企画・提供を担当いたしました。
@@ -88,3 +88,8 @@ BitaPでは、料理を提供するだけでなく、イベントの目的や参
 
 ＜BitaP口福ケータリングお問い合わせフォームはこちらから＞
 https://forms.gle/QPHj2dkgMYtEogHS8
+
+<!-- 2col -->
+![](images/20260630_1.jpg)
+![](images/20260630_2.jpg)
+<!-- /2col -->
