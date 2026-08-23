@@ -76,8 +76,14 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
            border-radius:58% 42% 47% 53% / 45% 55% 45% 55%;}
 .deco-badge{top:.5rem; right:0;}
 
-/* 波の仕切り */
-.wave{display:block; width:100%; height:90px; margin-top:-1px;}
+/* 波の仕切り：ファーストビューの下は流し込み、各セクションは下端に重ねる */
+.hero .wave{display:block; width:100%; height:90px; margin-top:-1px;}
+.blk{position:relative;}
+.blk > .wave{position:absolute; left:0; bottom:-1px; width:100%; height:70px; display:block;}
+@media(max-width:900px){
+  .hero .wave{height:55px;}
+  .blk > .wave{height:44px;}
+}
 
 /* ---------- セクション ---------- */
 section.blk{padding:5rem 0;}
@@ -240,8 +246,8 @@ header{opacity:0; transform:translateY(-12px);}
 @keyframes mvFade{to{opacity:1; transform:translateY(0);}}
 
 /* --- 波形：下から迫り上がる（向こうはSVGパスのモーフィング） --- */
-.wave{transform:translateY(40%); opacity:0;}
-.ready .wave{animation:waveIn 1.2s cubic-bezier(.76,0,.24,1) .5s forwards;}
+.hero .wave{transform:translateY(40%); opacity:0;}
+.ready .hero .wave{animation:waveIn 1.2s cubic-bezier(.76,0,.24,1) .5s forwards;}
 @keyframes waveIn{to{transform:translateY(0); opacity:1;}}
 
 /* --- 2画面目以降：Dawn の scroll-trigger と同じ（0.6秒 / 段差75ms / 手前50px） --- */
@@ -252,7 +258,7 @@ header{opacity:0; transform:translateY(-12px);}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
-  header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.wave,.reveal{
+  header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.hero .wave,.reveal{
     opacity:1 !important; transform:none !important; animation:none !important;}
 }
 </style>
@@ -352,6 +358,9 @@ header{opacity:0; transform:translateY(-12px);}
       </div>
     </div>
   </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#fbf7f5" d="M0,52 C230,96 430,10 720,36 C1000,60 1230,94 1440,48 L1440,90 L0,90 Z"></path>
+  </svg>
 </section>
 
 <section class="blk" id="record">
@@ -379,6 +388,9 @@ header{opacity:0; transform:translateY(-12px);}
       </div>
     </div>
   </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#f4e4e1" d="M0,44 C260,88 470,14 760,42 C1030,68 1240,86 1440,54 L1440,90 L0,90 Z"></path>
+  </svg>
 </section>
 
 <section class="blk blk-sand" id="news">
@@ -391,6 +403,9 @@ header{opacity:0; transform:translateY(-12px);}
     <div class="news-grid" id="news-grid">読み込み中...</div>
     <div class="more" data-reveal><a class="btn btn-line" href="../../news.html">お知らせをすべて見る</a></div>
   </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#fbf7f5" d="M0,58 C210,20 440,88 730,58 C1010,30 1250,18 1440,44 L1440,90 L0,90 Z"></path>
+  </svg>
 </section>
 
 <section class="blk" id="story">
@@ -402,6 +417,9 @@ header{opacity:0; transform:translateY(-12px);}
     <p class="body" data-reveal>腸内細菌の研究を続ける中で気づいたのは、おいしさと健康は、どちらかを諦めなくていいということ。制約の中でも、ときめく食事はできる。腸活はそのための手段です。</p>
     <div class="more" data-reveal><a class="btn btn-line" href="../../concept.html">創業に込めた思いを読む</a></div>
   </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#f4e4e1" d="M0,40 C240,84 460,20 750,48 C1020,74 1230,82 1440,50 L1440,90 L0,90 Z"></path>
+  </svg>
 </section>
 
 <section class="blk blk-sand">
@@ -421,6 +439,9 @@ header{opacity:0; transform:translateY(-12px);}
       </div>
     </div>
   </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#fbf7f5" d="M0,50 C220,14 450,86 740,52 C1020,22 1240,30 1440,56 L1440,90 L0,90 Z"></path>
+  </svg>
 </section>
 
 <section class="blk">
