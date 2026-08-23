@@ -105,13 +105,18 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
 .card a{margin-top:1rem; font-size:.85rem; color:var(--leaf); text-decoration:none; border-bottom:1px solid var(--sage); align-self:flex-start;}
 
 /* 実績 */
-.rec{display:flex; gap:2.5rem; align-items:center; margin-bottom:3rem;}
+.rec{display:flex; gap:2.5rem; align-items:center; margin-bottom:3rem;
+     text-decoration:none; color:inherit; transition:transform .25s;}
+.rec:hover{transform:translateY(-3px);}
+.rec:hover .rec-ttl{color:var(--rose-deep);}
+.rec:hover .rec-more{border-bottom-color:var(--leaf);}
 .rec:nth-child(odd){flex-direction:row-reverse;}
 .rec img{width:46%; border-radius:24px; display:block;}
 .rec-tag{display:inline-block; background:var(--rose-deep); color:#fff; font-size:.7rem; padding:.25rem .9rem; border-radius:999px; margin-bottom:.7rem;}
 .rec-date{font-size:.8rem; color:var(--ink-soft);}
 .rec-ttl{font-size:1.05rem; line-height:1.8; margin-top:.3rem;}
-.rec a{font-size:.85rem; color:var(--leaf); text-decoration:none; border-bottom:1px solid var(--sage);}
+.rec-more{display:inline-block; margin-top:.7rem; font-size:.85rem; color:var(--leaf);
+          border-bottom:1px solid var(--sage);}
 
 /* お知らせ */
 .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;}
@@ -370,23 +375,24 @@ header{opacity:0; transform:translateY(-12px);}
       <h2 class="ttl mincho">テレビ出演と、登壇・受賞</h2>
       <p class="ttl-sub">BitaPが紹介された場と、いただいた評価です。</p>
     </div>
-    <div class="rec" data-reveal>
+    <a class="rec" href="../../news/20250713/" data-reveal>
       <img src="../../images/tv_appearance.png" alt="テレビ出演">
       <div>
         <span class="rec-tag en">TV</span>
         <p class="rec-date">2025年7月13日</p>
         <p class="rec-ttl mincho">「発掘！スタートアップ ヒロミのおはようミーティング」に出演いたしました。</p>
+        <p class="rec-more">詳しく見る →</p>
       </div>
-    </div>
-    <div class="rec" data-reveal>
+    </a>
+    <a class="rec" href="../../news/20260311/" data-reveal>
       <img src="../../images/award_suteam.png" alt="登壇・受賞">
       <div>
         <span class="rec-tag en">AWARD</span>
         <p class="rec-date">2026年3月11日</p>
         <p class="rec-ttl mincho">東京都主催「TOKYO SUTEAM DEMO DAY 2026」にて登壇し、協定事業者賞を受賞しました。</p>
-        <p style="margin-top:.6rem"><a href="../../news/20260311/">詳しく見る →</a></p>
+        <p class="rec-more">詳しく見る →</p>
       </div>
-    </div>
+    </a>
   </div>
   <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#f4e4e1" d="M0,44 C260,88 470,14 760,42 C1030,68 1240,86 1440,54 L1440,90 L0,90 Z"></path>
