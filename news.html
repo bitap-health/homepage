@@ -10,13 +10,13 @@
 
   <header>
     <nav>
-      <div class="logo"><a href="index.html">株式会社BitaP</a></div>
+      <a class="brand" href="index.html"><b>株式会社BitaP</b><small class="en">BITAP INC.</small></a>
       <ul class="nav-links">
-        <li><a href="index.html#service">事業内容</a></li>
-        <li><a href="index.html#jisseki">実績</a></li>
-        <li><a href="index.html#news">お知らせ</a></li>
-        <li><a href="index.html#concept">BitaPについて</a></li>
-        <li><a href="index.html#contact">お問い合わせ</a></li>
+        <li><a href="index.html#service">事業内容<span class="en">SERVICE</span></a></li>
+        <li><a href="index.html#record">実績<span class="en">RECORD</span></a></li>
+        <li><a href="index.html#news">お知らせ<span class="en">JOURNAL</span></a></li>
+        <li><a href="index.html#story">BitaPについて<span class="en">ABOUT</span></a></li>
+        <li><a href="index.html#contact">お問い合わせ<span class="en">CONTACT</span></a></li>
       </ul>
     </nav>
   </header>
@@ -24,13 +24,13 @@
   <main>
 
     <section class="page-header">
-      <div class="container">
+      <div class="wrap">
         <h1>お知らせ</h1>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="wrap">
         <div id="news-grid" class="news-grid">読み込み中...</div>
       </div>
     </section>
@@ -38,50 +38,28 @@
   </main>
 
   <footer>
-    <div class="container">
-      <p class="footer-logo">株式会社BitaP</p>
-      <p class="footer-nav">
-        <a href="index.html#service">事業内容</a> |
-        <a href="index.html#jisseki">実績</a> |
-        <a href="news.html">お知らせ</a> |
-        <a href="index.html#gaiyou">会社概要</a> |
-        <a href="privacy.html">プライバシーポリシー</a>
+    <div class="wrap">
+      <p class="en" style="font-size:1rem;color:var(--ink)">BITAP INC.</p>
+      <p class="fnav">
+        <a href="index.html#service">事業内容</a>｜<a href="index.html#record">実績</a>｜<a href="news.html">お知らせ</a>｜<a href="privacy.html">プライバシーポリシー</a>
       </p>
       <p>Mail：<a href="mailto:info@bitap.co.jp">info@bitap.co.jp</a></p>
-      <p class="footer-copy">© 2025 株式会社BitaP</p>
+      <p style="margin-top:1rem">© 2025 株式会社BitaP</p>
     </div>
   </footer>
 
   <script>
-    // 画像ファイルが欠落している記事はグレーのプレースホルダーに差し替える
-    function newsImgFallback(img) {
-      const ph = document.createElement('div');
-      ph.className = 'news-card-placeholder';
-      img.replaceWith(ph);
-    }
-
     fetch('news.json')
-      .then(res => res.json())
-      .then(data => {
-        const grid = document.getElementById('news-grid');
-        grid.innerHTML = data.map((item, index) => {
-          const imgHTML = item.image
-            ? `<img src="${item.image}" alt="${item.title}" onerror="newsImgFallback(this)">`
-            : `<div class="news-card-placeholder"></div>`;
-          return `
-            <a class="news-card" href="${item.link}">
-              <div class="news-card-img">${imgHTML}</div>
-              <div class="news-card-body">
-                <p class="news-card-date">${item.date}</p>
-                <p class="news-card-title">${item.title}</p>
-              </div>
-            </a>
-          `;
-        }).join('');
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById('news-grid').innerHTML = d.map(it => `
+          <a class="news-card" href="${it.link}">
+            <div class="thumb">${it.image ? `<img src="${it.image}" alt="">` : ''}</div>
+            <p class="date en">${it.date}</p>
+            <p class="t">${it.title}</p>
+          </a>`).join('');
       })
-      .catch(() => {
-        document.getElementById('news-grid').innerHTML = '<p>お知らせを読み込めませんでした。</p>';
-      });
+      .catch(() => { document.getElementById('news-grid').textContent = 'お知らせを読み込めませんでした。'; });
   </script>
 
 </body>
