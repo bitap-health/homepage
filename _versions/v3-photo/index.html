@@ -244,13 +244,9 @@ header{opacity:0; transform:translateY(-12px);}
 .reveal.is-in{animation:slideIn .6s cubic-bezier(0, 0, .3, 1) forwards;
               animation-delay:calc(var(--order, 0) * 75ms);}
 
-/* --- スクロール量に応じたゆっくりズーム（最大1.2倍） --- */
-.zoomable{--zoom:1; scale:var(--zoom); transition:scale .1s linear;}
-
 @media (prefers-reduced-motion: reduce){
   header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.wave,.reveal{
     opacity:1 !important; transform:none !important; animation:none !important;}
-  .zoomable{scale:1;}
 }
 </style>
 </head>
@@ -274,7 +270,7 @@ header{opacity:0; transform:translateY(-12px);}
     <div class="hero-grid">
       <div class="hero-visual">
         <span class="deco deco-leaf wiggle" style="--d:1.15s"></span>
-        <div class="mv-shot main zoomable">
+        <div class="mv-shot main">
           <img src="../../images/service_catering.png" alt="BitaPが設計した腸活ケータリング">
         </div>
       </div>
@@ -359,7 +355,7 @@ header{opacity:0; transform:translateY(-12px);}
       <p class="ttl-sub">メディア出演と、登壇・受賞の記録です。</p>
     </div>
     <div class="rec" data-reveal>
-      <img class="zoomable" src="../../images/tv_appearance.png" alt="テレビ出演">
+      <img src="../../images/tv_appearance.png" alt="テレビ出演">
       <div>
         <span class="rec-tag en">TV</span>
         <p class="rec-date">2025年7月13日</p>
@@ -367,7 +363,7 @@ header{opacity:0; transform:translateY(-12px);}
       </div>
     </div>
     <div class="rec" data-reveal>
-      <img class="zoomable" src="../../images/award_suteam.png" alt="登壇・受賞">
+      <img src="../../images/award_suteam.png" alt="登壇・受賞">
       <div>
         <span class="rec-tag en">AWARD</span>
         <p class="rec-date">2026年3月11日</p>
@@ -514,23 +510,7 @@ function observe(root){
   targets.forEach(t => io.observe(t));
 }
 
-/* --- 4) スクロール量に応じたゆっくりズーム（最大1.2倍） --- */
-function zoom(){
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const els = [...document.querySelectorAll('.zoomable')];
-  const seen = (el) => {
-    const vh = window.innerHeight, y = window.scrollY;
-    const top = el.getBoundingClientRect().top + y, hgt = el.offsetHeight;
-    if (top > y + vh) return 0;
-    if (top + hgt < y) return 100;
-    return Math.round((y + vh - top) / ((vh + hgt) / 100));
-  };
-  const update = () => els.forEach(el => el.style.setProperty('--zoom', 1 + 0.002 * seen(el)));
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-}
-
-/* --- 5) お知らせの読み込み --- */
+/* --- 4) お知らせの読み込み --- */
 fetch('../../news.json')
   .then(r => r.json())
   .then(d => {
@@ -545,7 +525,6 @@ fetch('../../news.json')
   .catch(() => { document.getElementById('news-grid').textContent = 'お知らせを読み込めませんでした。'; });
 
 observe(document);
-zoom();
 </script>
 </body>
 </html>
