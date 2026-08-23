@@ -181,8 +181,8 @@ footer a{color:var(--ink-soft);}
 }
 
 /* --- ヘッダー：y -12px から 0.8秒 --- */
-header{opacity:0; transform:translateY(-12px);}
-.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
+body.home header{opacity:0; transform:translateY(-12px);}
+body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
 @keyframes hdrIn{to{opacity:1; transform:translateY(0);}}
 
 /* --- 見出し：1行ずつマスクし、1文字ずつ下から。stagger 40ms / back.out(1.45) / 0.7秒 --- */
@@ -253,6 +253,6 @@ header{opacity:0; transform:translateY(-12px);}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
-  header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.hero .wave,.reveal{
+  body.home header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.hero .wave,.reveal{
     opacity:1 !important; transform:none !important; animation:none !important;}
 }
