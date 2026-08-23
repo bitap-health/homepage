@@ -281,8 +281,9 @@ h2 {
    ===================== */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  /* 4事業を2×2で並べる。3列だと4枚目が1枚だけ余る */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 2.5rem;
 }
 
 .service-card h3 {
