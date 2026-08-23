@@ -76,6 +76,18 @@ nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-i
            border-radius:58% 42% 47% 53% / 45% 55% 45% 55%;}
 .deco-badge{top:.5rem; right:0;}
 
+/* 飾りのイラスト：本文の背面に置き、ゆっくり漂わせる */
+.wrap{position:relative; z-index:1;}
+.illust{position:absolute; z-index:0; pointer-events:none; display:block;}
+.illust.f1{animation:float1 7s ease-in-out infinite;}
+.illust.f2{animation:float2 9s ease-in-out infinite;}
+.illust.f3{animation:float3 11s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(-4deg)}}
+@keyframes float3{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+/* 画面が狭いと本文に重なるので隠す */
+@media(max-width:1240px){ .illust{display:none;} }
+
 /* 波の仕切り：ファーストビューの下は流し込み、各セクションは下端に重ねる */
 .hero .wave{display:block; width:100%; height:90px; margin-top:-1px;}
 .blk{position:relative;}
@@ -321,6 +333,17 @@ header{opacity:0; transform:translateY(-12px);}
 </section>
 
 <section class="blk blk-sand" id="service">
+  <svg class="illust f1" style="top:3.5rem; right:2.5%; width:52px;" viewBox="0 0 60 92" aria-hidden="true">
+    <path d="M30 90 C21 70 17 50 21 35 C25 21 35 21 39 35 C43 50 39 70 30 90 Z" fill="#e39e9c"/>
+    <path d="M29 36 C23 23 17 16 8 13 C12 24 19 32 27 37 Z" fill="#8fa06d"/>
+    <path d="M32 36 C36 21 43 12 53 8 C51 21 45 31 34 38 Z" fill="#b6c19a"/>
+  </svg>
+  <svg class="illust f2" style="bottom:5.5rem; left:2%; width:74px;" viewBox="0 0 84 84" aria-hidden="true">
+    <circle cx="28" cy="28" r="16" fill="#8fa06d"/>
+    <circle cx="52" cy="24" r="13" fill="#b6c19a"/>
+    <circle cx="42" cy="41" r="14" fill="#8fa06d"/>
+    <rect x="34" y="48" width="13" height="28" rx="6.5" fill="#cddab8"/>
+  </svg>
   <div class="wrap">
     <div class="head-center" data-reveal>
       <p class="label en">SERVICE</p>
@@ -369,6 +392,13 @@ header{opacity:0; transform:translateY(-12px);}
 </section>
 
 <section class="blk" id="record">
+  <svg class="illust f3" style="top:4rem; left:2%; width:86px;" viewBox="0 0 100 74" aria-hidden="true">
+    <rect x="16" y="2" width="68" height="9" rx="4.5" fill="#e39e9c"/>
+    <rect x="4" y="13" width="92" height="55" rx="11" fill="#c9807e"/>
+    <rect x="13" y="22" width="35" height="37" rx="6" fill="#fbf7f5"/>
+    <rect x="54" y="22" width="33" height="16" rx="5" fill="#fbf7f5"/>
+    <rect x="54" y="43" width="33" height="16" rx="5" fill="#f4e4e1"/>
+  </svg>
   <div class="wrap">
     <div class="head-center" data-reveal>
       <p class="label en">RECORD</p>
@@ -400,6 +430,10 @@ header{opacity:0; transform:translateY(-12px);}
 </section>
 
 <section class="blk blk-sand" id="news">
+  <svg class="illust f1" style="top:3rem; right:3%; width:74px;" viewBox="0 0 92 66" aria-hidden="true">
+    <rect x="3" y="6" width="86" height="55" rx="9" fill="#e39e9c"/>
+    <path d="M9 15 L46 41 L83 15" fill="none" stroke="#fbf7f5" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
   <div class="wrap">
     <div class="head-center" data-reveal>
       <p class="label en">JOURNAL</p>
@@ -415,6 +449,12 @@ header{opacity:0; transform:translateY(-12px);}
 </section>
 
 <section class="blk" id="story">
+  <svg class="illust f2" style="top:3rem; left:3%; width:80px;" viewBox="0 0 92 84" aria-hidden="true">
+    <path d="M30 30 C37 22 25 16 32 6" fill="none" stroke="#b6c19a" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M52 30 C59 22 47 16 54 6" fill="none" stroke="#cddab8" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M12 46 h68 a34 34 0 0 1 -68 0 z" fill="#c9807e"/>
+    <rect x="6" y="41" width="80" height="8" rx="4" fill="#e39e9c"/>
+  </svg>
   <div class="wrap narrow story">
     <p class="label en">ABOUT</p>
     <h2 class="ttl mincho">社名の由来</h2>
@@ -429,6 +469,16 @@ header{opacity:0; transform:translateY(-12px);}
 </section>
 
 <section class="blk blk-sand">
+  <svg class="illust f3" style="bottom:4rem; right:3%; width:44px;" viewBox="0 0 48 100" aria-hidden="true">
+    <path d="M24 98 V38" stroke="#b6c19a" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <g fill="#8fa06d">
+      <ellipse cx="14" cy="40" rx="7" ry="11" transform="rotate(-25 14 40)"/>
+      <ellipse cx="34" cy="34" rx="7" ry="11" transform="rotate(25 34 34)"/>
+      <ellipse cx="14" cy="24" rx="7" ry="11" transform="rotate(-25 14 24)"/>
+      <ellipse cx="34" cy="18" rx="7" ry="11" transform="rotate(25 34 18)"/>
+    </g>
+    <ellipse cx="24" cy="9" rx="7" ry="11" fill="#b6c19a"/>
+  </svg>
   <div class="wrap">
     <div class="head-center" data-reveal>
       <p class="label en">MESSAGE</p>
