@@ -52,7 +52,7 @@
     fetch('news.json?v=' + Date.now())
       .then(r => r.json())
       .then(d => {
-        document.getElementById('news-grid').innerHTML = d.map(it => `
+        document.getElementById('news-grid').innerHTML = d.filter(it => it.public !== false).map(it => `
           <a class="news-card" href="${it.link}">
             <div class="thumb">${it.image ? `<img src="${it.image}" alt="" class="${it.fit === 'contain' ? 'fit-contain' : ''}" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')">` : ''}</div>
             <p class="date en">${it.date}</p>
