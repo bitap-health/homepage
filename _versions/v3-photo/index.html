@@ -21,6 +21,11 @@
   --leaf:#8fa06d;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
+html{
+  scroll-behavior:smooth;
+  /* 固定ヘッダー（約65px）の下に見出しが潜り込まないよう余白を確保 */
+  scroll-padding-top:90px;
+}
 body{
   font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
   background:var(--paper); color:var(--ink); line-height:1.9; font-size:16px;
@@ -141,6 +146,7 @@ footer a{color:var(--ink-soft);}
 .fnav{margin:1rem 0;}
 
 @media(max-width:900px){
+  html{scroll-padding-top:130px;}
   .hero-grid{grid-template-columns:1fr; gap:2rem;}
   .mv-shot.sub{width:75% !important; margin:1.5rem auto 0 !important;}
   .deco-leaf{display:none;}
@@ -245,6 +251,7 @@ header{opacity:0; transform:translateY(-12px);}
               animation-delay:calc(var(--order, 0) * 75ms);}
 
 @media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
   header,.mv-copy .ch,.mv-shot,.mv-shot img,.deco,.mv-fade,.wave,.reveal{
     opacity:1 !important; transform:none !important; animation:none !important;}
 }
