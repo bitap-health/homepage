@@ -286,7 +286,7 @@ function observe(root){
 }
 
 /* --- 4) お知らせの読み込み --- */
-fetch('news.json')
+fetch('news.json?v=' + Date.now())
   .then(r => r.json())
   .then(d => {
     document.getElementById('news-grid').innerHTML = d.slice(0, 6).map(it => `

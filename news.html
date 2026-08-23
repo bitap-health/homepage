@@ -49,7 +49,7 @@
   </footer>
 
   <script>
-    fetch('news.json')
+    fetch('news.json?v=' + Date.now())
       .then(r => r.json())
       .then(d => {
         document.getElementById('news-grid').innerHTML = d.map(it => `
