@@ -281,9 +281,16 @@ h2 {
    ===================== */
 .service-grid {
   display: grid;
-  /* 4事業を2×2で並べる。3列だと4枚目が1枚だけ余る */
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 2.5rem;
+  /* 4事業を横一列に並べる */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* 画面が狭いと4列では潰れるので2列に落とす（さらに狭いと1列） */
+@media (max-width: 1000px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .service-card h3 {

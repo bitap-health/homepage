@@ -83,7 +83,8 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
 .head-center{text-align:center;}
 
 /* 事業内容：写真を大きな角丸で */
-.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:2.4rem 2.8rem;}
+.cards{display:grid; grid-template-columns:repeat(4,1fr); gap:1.8rem;}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr);}}
 .card{text-align:center;}
 .card .ph-empty{background:var(--paper);}
 .card .ph{width:100%; aspect-ratio:1/.85; object-fit:cover; border-radius:44% 56% 48% 52% / 50% 48% 52% 50%; display:block; margin-bottom:1.2rem;}
