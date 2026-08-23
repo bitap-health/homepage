@@ -219,6 +219,11 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
 .ready .mv-shot.sub img{animation-delay:.35s;}
 @keyframes imgZoom{to{transform:scale(1);}}
 
+/* 登場が終わったら変形の指定を完全に外す。
+   変形が残ったままだと、画面によっては画像がぼやけて表示されるため */
+.mv-shot.settled{animation:blob 9s var(--e-sine) infinite alternate !important;}
+.mv-shot.settled img{animation:none !important; transform:none !important;}
+
 /* --- 飾り：scale .98 / yPercent 8 から back.out(1.4)。その後ずっと小刻みに揺れる --- */
 .deco{opacity:0; transform:translateY(8%) scale(.98);}
 .ready .deco{animation:decoIn 1.2s var(--e-back) forwards; animation-delay:var(--d, 1s);}
