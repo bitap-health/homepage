@@ -3,9 +3,8 @@
   publish = "."
   command = ""
 
-# サイト全体に Basic 認証ゲートをかける Edge Function。
-# 正式公開時はこの [[edge_functions]] ブロックと netlify/edge-functions/auth.ts を
-# 削除して push すれば、ゲートは外れます。
+# 担当者マニュアルや記事の原稿など、公開サイトに出したくないファイルを
+# 404 にする Edge Function。詳しくは netlify/edge-functions/hide.ts を参照。
 [[edge_functions]]
   path = "/*"
-  function = "auth"
+  function = "hide"
