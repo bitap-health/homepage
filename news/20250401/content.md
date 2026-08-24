@@ -17,5 +17,3 @@ thumbnail: 20250401_1.png
 ジャパンウェルネス株式会社様HPでのご紹介は[こちら](https://freedom-group.co.jp/%E6%9D%B1%E4%BA%AC%E7%A7%91%E5%AD%A6%E5%A4%A7%E5%AD%A6%E7%99%BA-bitap%E6%A7%98-%E7%9B%A3%E4%BF%AE%E8%85%B8%E6%B4%BB%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E5%AE%9F%E6%96%BD/)です。
 
 [ 連絡先 ] bitap.health@gmail.com
-
-![](images/20250401_1.png)
