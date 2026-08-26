@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 限定公開の記事・担当者向けの文書は検索結果に載せない
+Disallow: /news/20260803/
+
+Sitemap: https://bitap.co.jp/sitemap.xml
