@@ -123,6 +123,23 @@ h2.ttl{font-size:1.8rem; font-weight:400; line-height:1.6; margin-bottom:.7rem; 
                       opacity:0; transition:opacity .45s ease;}
 .news-card .thumb img.fit-contain{object-fit:contain;}
 .news-card .thumb img.is-loaded{opacity:1;}
+/* タグ（お知らせの種類） */
+.tags{display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.5rem;}
+.tags.center{justify-content:center;}
+.tag{display:inline-block; padding:.3rem .65rem; border-radius:999px;
+     background:var(--pale); color:var(--rose-deep);
+     font-size:.7rem; line-height:1.25; letter-spacing:.04em; white-space:nowrap;}
+.news-card .tags{margin-bottom:.45rem;}
+
+/* タグでの絞り込みバー（お知らせ一覧のみ） */
+.tag-filter{display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; margin-bottom:1.2rem;}
+.tag-filter button{font:inherit; cursor:pointer; padding:.45rem 1rem; border-radius:999px;
+                   border:1px solid var(--pale); background:transparent; color:var(--ink-soft);
+                   font-size:.8rem; letter-spacing:.04em;
+                   transition:background .2s, color .2s, border-color .2s;}
+.tag-filter button:hover{border-color:var(--rose); color:var(--rose-deep);}
+.tag-filter button[aria-pressed="true"]{background:var(--rose-deep); border-color:var(--rose-deep); color:#fff;}
+.news-count{text-align:center; font-size:.8rem; color:var(--ink-soft); margin-bottom:2rem;}
 .news-card .date{font-size:.78rem; color:var(--leaf); margin-bottom:.3rem;}
 .news-card .t{font-size:.9rem; line-height:1.7;}
 .news-card:hover .t{color:var(--rose-deep);}
@@ -163,6 +180,9 @@ footer a{color:var(--ink-soft);}
   .deco-leaf{display:none;}
   .deco-badge{display:none;}
   .cards,.news-grid{grid-template-columns:1fr;}
+  /* タグが多いので、スマホでは少し詰めて行数を抑える */
+  .tag-filter{gap:.4rem;}
+  .tag-filter button{padding:.35rem .75rem; font-size:.75rem;}
   .rec,.rec:nth-child(odd){flex-direction:column;}
   .rec img{width:100%;}
   .profile{flex-direction:column; text-align:center;}
@@ -296,6 +316,7 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
 .detail-content{max-width:840px;}
 .detail-date{color:var(--rose); font-size:.85rem; text-align:center; margin-bottom:.8rem;
              font-family:"Poppins",sans-serif; font-weight:600; letter-spacing:.06em;}
+.detail-content .tags{margin-bottom:.9rem;}
 .detail-title{font-size:1.5rem; font-weight:500; line-height:1.75; text-align:center;
               letter-spacing:.04em; margin-bottom:2.8rem;
               font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;}

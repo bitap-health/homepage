@@ -1,5 +1,6 @@
 ---
 date: 2025/06/04
+tags: 会社情報
 title: 株式会社BitaPが誕生しました
 thumbnail: 20250604_1.png
 ---

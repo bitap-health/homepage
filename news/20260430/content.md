@@ -1,6 +1,7 @@
 ---
 date: 2026/04/30
-title: 【御礼】BitaPの一期目が終了しました
+tags: 御礼
+title: BitaPの一期目が終了しました
 thumbnail: 20260430_1.png
 ---
 

@@ -1,6 +1,7 @@
 ---
 date: 2026/03/10
-title: 【登壇情報】TOKYO SUTEAM DEMO DAYに登壇しました
+tags: 登壇情報
+title: TOKYO SUTEAM DEMO DAYに登壇しました
 thumbnail: 20260311_1.jpg
 ---
 

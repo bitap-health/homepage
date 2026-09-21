@@ -1,6 +1,7 @@
 ---
 date: 2024/07/01
-title: 【採択】アクセラレーションプログラムTokyo Technology Cemmercialization Programに採択されました
+tags: 採択
+title: アクセラレーションプログラムTokyo Technology Cemmercialization Programに採択されました
 thumbnail: 20240701_1.png
 ---
 

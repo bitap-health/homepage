@@ -1,6 +1,7 @@
 ---
 date: 2024/09/30
-title: 【受賞】アクセラレーションプログラムTokyo Technology Cemmercialization Programの中間報告にて審査員特別賞を受賞しました
+tags: 受賞
+title: アクセラレーションプログラムTokyo Technology Cemmercialization Programの中間報告にて審査員特別賞を受賞しました
 thumbnail: 20240930_1.jpg
 ---
 

@@ -333,6 +333,7 @@ fetch('news.json?v=' + Date.now())
     document.getElementById('news-grid').innerHTML = d.filter(it => it.public !== false).slice(0, 6).map(it => `
       <a class="news-card" href="${it.link}" data-reveal data-cascade>
         <div class="thumb">${it.image ? `<img src="${it.image}" alt="" class="${it.fit === 'contain' ? 'fit-contain' : ''}" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')">` : ''}</div>
+        ${(it.tags || []).length ? `<div class="tags">${it.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
         <p class="date en">${it.date}</p>
         <p class="t">${it.title}</p>
       </a>`).join('');

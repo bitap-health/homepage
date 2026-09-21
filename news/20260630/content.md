@@ -1,6 +1,7 @@
 ---
 date: 2026/06/30
-title: 【事業事例】研究者と企業の会「academmune Meetup」で腸活和ごはんを提供しました
+tags: 事業事例
+title: 研究者と企業の会「academmune Meetup」で腸活和ごはんを提供しました
 thumbnail: 20260630_1.jpg
 ---
 
