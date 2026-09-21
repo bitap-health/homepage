@@ -24,7 +24,14 @@ body{
   font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
   background:var(--paper); color:var(--ink); line-height:1.9; font-size:16px;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  /* 日本語を文節の切れ目で折り返す。これが無いと「ご相談くださ／い」のように
+     語の途中で切れる。対応していないブラウザでは何も起きない（従来どおり） */
+  word-break:auto-phrase;
 }
+/* 見出しは行の長さを揃える。1行目いっぱいに詰めて2行目に2文字だけ、を防ぐ */
+h1,h2,h3,.ttl,.rec-ttl,.news-card .t,.detail-title,.card-in h3{text-wrap:balance;}
+/* 本文は最終行が極端に短くならないようにする */
+p{text-wrap:pretty;}
 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"游明朝",serif;}
 .en{font-family:"Poppins",sans-serif; font-weight:600; letter-spacing:.1em;}
 .wrap{max-width:1280px; margin:0 auto; padding:0 1.5rem;}
@@ -32,14 +39,26 @@ body{
 
 /* ---------- ヘッダー（日本語＋英字の2段ラベル） ---------- */
 header{position:sticky; top:0; z-index:60; background:rgba(251,247,245,.94); backdrop-filter:blur(6px);}
-nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-items:center; gap:2.5rem;}
+nav{max-width:1300px; margin:0 auto; padding:.9rem 1.5rem; display:flex; align-items:center; gap:2.5rem;
+     position:relative;}
 .brand{text-decoration:none; color:var(--ink); line-height:1.3;}
 .brand b{display:block; font-size:1.15rem; font-weight:600; letter-spacing:.04em;}
 .brand small{display:block; font-size:.6rem; color:var(--rose); letter-spacing:.22em;}
 .nav-links{margin-left:auto; display:flex; gap:2rem; list-style:none; text-align:center;}
-.nav-links a{text-decoration:none; color:var(--ink); font-size:.9rem; line-height:1.35;}
+.nav-links a{text-decoration:none; color:var(--ink); font-size:.9rem; line-height:1.35;
+             white-space:nowrap;}
 .nav-links a span{display:block; font-size:.58rem; color:var(--rose); letter-spacing:.16em;}
 .nav-links a:hover{color:var(--rose-deep);}
+
+/* メニューボタン。PCでは出さない */
+.nav-toggle{display:none; margin-left:auto; width:44px; height:44px; padding:11px 10px;
+            border:0; background:transparent; cursor:pointer;
+            flex-direction:column; justify-content:space-between;}
+.nav-toggle span{display:block; height:2px; border-radius:2px; background:var(--ink);
+                 transition:transform .25s ease, opacity .2s ease;}
+header.is-open .nav-toggle span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+header.is-open .nav-toggle span:nth-child(2){opacity:0;}
+header.is-open .nav-toggle span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
 
 /* ---------- ファーストビュー ---------- */
 .hero{position:relative; padding:3.5rem 0 0;}
@@ -166,8 +185,9 @@ td{color:var(--ink-soft);}
 .cta p{opacity:.9; font-size:.94rem; margin-bottom:2rem;}
 .cta .btn-fill{background:#fff; color:var(--rose-deep);}
 .cta .btn-fill:hover{background:var(--sand);}
-.sns{display:flex; gap:1rem; justify-content:center; margin-top:2rem;}
-.sns a{color:#fff; text-decoration:none; font-size:.85rem; border:1px solid rgba(255,255,255,.55); padding:.5rem 1.4rem; border-radius:999px;}
+.sns{display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-top:2rem;}
+.sns a{color:#fff; text-decoration:none; font-size:.85rem; border:1px solid rgba(255,255,255,.55);
+       padding:.5rem 1.4rem; border-radius:999px; white-space:nowrap;}
 
 footer{padding:3.5rem 0 2.5rem; text-align:center; font-size:.85rem; color:var(--ink-soft);}
 footer a{color:var(--ink-soft);}
@@ -175,20 +195,49 @@ footer a{color:var(--ink-soft);}
 
 @media(max-width:900px){
   html{scroll-padding-top:130px;}
+  html.js-nav{scroll-padding-top:80px;}
   .hero-grid{grid-template-columns:1fr; gap:2rem;}
   .mv-shot.sub{width:75% !important; margin:1.5rem auto 0 !important;}
   .deco-leaf{display:none;}
   .deco-badge{display:none;}
   .cards,.news-grid{grid-template-columns:1fr;}
-  /* タグが多いので、スマホでは少し詰めて行数を抑える */
-  .tag-filter{gap:.4rem;}
-  .tag-filter button{padding:.35rem .75rem; font-size:.75rem;}
+  /* タグが増えても段が増えないよう、横1行のまま指で送って選ぶ形にする。
+     画面の端まで届かせて、右にまだ続くことが見て分かるようにしている */
+  .tag-filter{flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+              gap:.5rem; margin:0 -1.5rem 1.2rem; padding:0 1.5rem .25rem;
+              scrollbar-width:none; -webkit-overflow-scrolling:touch;}
+  .tag-filter::-webkit-scrollbar{display:none;}
+  .tag-filter button{flex:0 0 auto; padding:.4rem .9rem; font-size:.78rem;}
   .rec,.rec:nth-child(odd){flex-direction:column;}
   .rec img{width:100%;}
   .profile{flex-direction:column; text-align:center;}
   .hero-copy h1{font-size:min(24px, 5.7vw); line-height:200%;}
-  .nav-links{gap:1rem;}
+  /* JSが動かないときの姿。リンクを中央に並べ、項目は割らない */
+  .nav-links{width:100%; margin-left:0; flex-wrap:wrap; justify-content:center;
+             gap:.6rem 1.2rem;}
   nav{flex-wrap:wrap; gap:.8rem;}
+
+  /* ここから、メニューボタンに畳んだときの姿 */
+  .js-nav .nav-toggle{display:flex;}
+  .js-nav nav{flex-wrap:nowrap; gap:1rem;}
+  .js-nav .nav-links{display:none; position:absolute; top:100%; left:0; right:0;
+                     width:auto; margin:0; padding:.2rem 1.5rem 1rem;
+                     flex-direction:column; align-items:stretch; gap:0;
+                     background:var(--paper);
+                     box-shadow:0 14px 26px rgba(74,59,57,.10);}
+  .js-nav header.is-open .nav-links{display:flex;}
+  .js-nav .nav-links li + li{border-top:1px solid var(--pale);}
+  .js-nav .nav-links a{display:block; text-align:left; padding:.9rem .2rem; font-size:.95rem;}
+  .js-nav .nav-links a span{display:inline; margin-left:.7rem; font-size:.6rem;}
+  /* 本文の幅を稼ぐため、左右の余白を詰める */
+  .cta{padding:3rem 1.5rem;}
+}
+
+@media(max-width:480px){
+  /* JSが動かないときだけ。英字ラベルが項目の幅を決めているので、ここを縮める */
+  html:not(.js-nav) .nav-links a{font-size:.85rem;}
+  html:not(.js-nav) .nav-links a span{font-size:.54rem; letter-spacing:.1em;}
+  .sns a{padding:.5rem 1.1rem;}
 }
 
 /* ==========================================================
@@ -351,6 +400,8 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
 
 @media(max-width:768px){
   .img-2col,.img-3col{grid-template-columns:1fr;}
-  .detail-title{font-size:1.2rem;}
+  /* 1.2rem だと「プログラ／ム」「サイ／ト」のようにカタカナ語が割れる記事が10本あった。
+     1.05rem まで落とすと32本すべて割れずに収まる */
+  .detail-title{font-size:1.05rem;}
   .section{padding:3.5rem 0;}
 }

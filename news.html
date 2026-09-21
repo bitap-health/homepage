@@ -16,6 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>お知らせ | 株式会社BitaP</title>
   <link rel="stylesheet" href="style.css">
+<script src="nav.js"></script>
 </head>
 <body>
 
@@ -111,6 +112,13 @@
       });
     });
     bar.hidden = false;
+
+    /* スマホでは横1行で送る形なので、選ばれているタグが画面外だと分からない。
+       バーの中だけを動かして中央に寄せる（ページ自体はスクロールさせない） */
+    const 選択中 = bar.querySelector('[aria-pressed="true"]');
+    if (選択中 && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollLeft = 選択中.offsetLeft - (bar.clientWidth - 選択中.offsetWidth) / 2;
+    }
 
     const list = active === ALL ? items : items.filter(it => (it.tags || []).includes(active));
     count.textContent = `${list.length}件`;
