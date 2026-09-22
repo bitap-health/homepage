@@ -201,6 +201,24 @@ footer a{color:var(--ink-soft);}
   .deco-leaf{display:none;}
   .deco-badge{display:none;}
   .cards,.news-grid{grid-template-columns:1fr;}
+
+  /* トップのお知らせは6件を縦に積むと画面4つ分になる。横へ送って読む形にする。
+     1枚を画面の76%にして次のカードの左端を覗かせ、まだ続くことを見せている。
+     #news で囲っているのはトップのセクションだけが対象という意味。
+     お知らせ一覧ページ（news.html）は今までどおり縦に並ぶ */
+  #news .news-grid{
+    grid-auto-flow:column; grid-template-columns:none; grid-auto-columns:76%;
+    gap:1rem; overflow-x:auto;
+    /* 画面の端まで届かせ、カードは余白のぶん内側から始める */
+    margin-inline:-1.5rem; padding:.25rem 1.5rem 1rem;
+    scroll-snap-type:x proximity; scroll-padding-left:1.5rem;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  #news .news-grid::-webkit-scrollbar{display:none;}
+  #news .news-grid > .news-card{scroll-snap-align:start;}
+  /* 横に隠れているカードは登場アニメーションの合図が届かず、薄いまま残る。
+     横へ送る形では「送ったらもう見えている」が正しいので、ここだけ出しておく */
+  #news .news-grid > .news-card.reveal{opacity:1; transform:none; animation:none;}
   /* タグが増えても段が増えないよう、横1行のまま指で送って選ぶ形にする。
      画面の端まで届かせて、右にまだ続くことが見て分かるようにしている */
   .tag-filter{flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
