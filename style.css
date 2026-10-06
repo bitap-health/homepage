@@ -397,6 +397,8 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
 .detail-text a{color:var(--rose-deep);}
 .detail-text blockquote{border-left:3px solid var(--sage); padding:.4rem 1.3rem;
                         margin:1.6rem 0; color:var(--ink);}
+/* 引用が複数段落のとき、最後の段落の下に余白を足さない */
+.detail-text blockquote p:last-child{margin-bottom:0;}
 .detail-img{display:block; max-width:100%; max-height:660px; width:auto; height:auto;
             margin:0 auto 2rem;}
 .detail-text img{width:100%; margin:1.5rem 0;}
