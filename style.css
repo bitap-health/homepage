@@ -389,6 +389,10 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
               font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;}
 .detail-text{color:var(--ink-soft); line-height:2;}
 .detail-text p{margin-bottom:1.3rem;}
+/* パソコン幅では記事の本文が1行に長く入るので、文節で折り返すと右端がそろわず、
+   途中で改行したように見える。パソコン幅の本文だけ通常の折り返しに戻して行の端まで詰める。
+   スマホ幅は文節折り返しのまま */
+@media(min-width:901px){.detail-text p{word-break:normal;}}
 .detail-text strong{color:var(--ink); font-weight:600;}
 .detail-text a{color:var(--rose-deep);}
 .detail-text blockquote{border-left:3px solid var(--sage); padding:.4rem 1.3rem;
