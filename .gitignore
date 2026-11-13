@@ -2,3 +2,6 @@
 _preview/
 写真/
 *.zip
+
+# Local Netlify folder
+.netlify
