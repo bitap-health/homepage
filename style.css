@@ -399,6 +399,16 @@ body.home.ready header{animation:hdrIn .8s var(--e-power2) .35s forwards;}
                         margin:1.6rem 0; color:var(--ink);}
 /* 引用が複数段落のとき、最後の段落の下に余白を足さない */
 .detail-text blockquote p:last-child{margin-bottom:0;}
+/* 記事本文のリンクカード。外部メディアに掲載されたときの導線を目立たせる */
+.news-link-card{display:block; text-decoration:none; color:var(--ink);
+  background:var(--sand); border-radius:16px; padding:1.3rem 1.5rem; margin:1.8rem 0;
+  transition:transform .2s ease, box-shadow .2s ease;}
+.news-link-card:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(74,59,57,.12);}
+.news-link-card .nlc-label{display:block; font-size:.8rem; color:var(--rose-deep);
+  font-weight:600; letter-spacing:.04em; margin-bottom:.4rem;}
+.news-link-card .nlc-title{display:block; font-size:1rem; font-weight:600; line-height:1.8;}
+.news-link-card .nlc-go{display:block; text-align:right; font-size:.85rem;
+  color:var(--rose-deep); margin-top:.6rem;}
 .detail-img{display:block; max-width:100%; max-height:660px; width:auto; height:auto;
             margin:0 auto 2rem;}
 .detail-text img{width:100%; margin:1.5rem 0;}
