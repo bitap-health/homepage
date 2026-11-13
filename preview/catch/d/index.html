@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#faf6f2">
+<title>【検討用】案D モック再現｜株式会社BitaP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=EB+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mk-paper:#faf6f2; --mk-ink:#2b2523; --mk-ink-soft:#6f6460;
+  --mk-rose:#e2705a; --mk-ring:#f3e3dd; --mk-line:#e7ddd6;
+}
+*{box-sizing:border-box;}
+html,body{margin:0; padding:0;}
+body{background:var(--mk-paper); color:var(--mk-ink);
+     font-family:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+     line-height:1.9; -webkit-font-smoothing:antialiased;}
+.preview-bar{background:#2b2523; color:#fff; font-size:.8rem; text-align:center;
+             padding:.55rem 1rem; letter-spacing:.02em;}
+.preview-bar a{color:#fff; margin-left:.8rem;}
+.mk-wrap{max-width:1180px; margin:0 auto; padding:0 2.4rem;}
+@media(max-width:700px){.mk-wrap{padding:0 1.2rem;}}
+
+/* ヘッダー */
+.mk-header{padding:2.2rem 0 1.6rem; border-bottom:1px solid var(--mk-line);}
+.mk-header .mk-wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem;}
+.mk-brand{text-decoration:none; color:var(--mk-ink); line-height:1.1;}
+.mk-brand b{display:block; font-size:1.65rem; font-weight:700; letter-spacing:.01em;}
+.mk-brand small{display:block; font-size:.62rem; letter-spacing:.34em; color:var(--mk-ink-soft); margin-top:.3rem;}
+.mk-nav{display:flex; align-items:center; gap:2.6rem;}
+.mk-nav a{text-decoration:none; color:var(--mk-ink-soft); font-size:.82rem; letter-spacing:.14em;}
+.mk-nav a:hover{color:var(--mk-ink);}
+.mk-nav a.pill{background:var(--mk-ink); color:#fff; padding:.75rem 1.7rem; border-radius:999px; letter-spacing:.12em;}
+.mk-nav a.pill:hover{background:#443a37;}
+@media(max-width:860px){.mk-nav{gap:1.2rem;} .mk-nav a{font-size:.72rem;} .mk-nav a.pill{padding:.6rem 1.1rem;}}
+
+/* ヒーロー */
+.mk-hero{padding:5.5rem 0 4.5rem;}
+.mk-grid{display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;}
+@media(max-width:900px){.mk-hero{padding:3rem 0;} .mk-grid{grid-template-columns:1fr; gap:2.5rem;}}
+.mk-en{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-size:1.35rem;
+       letter-spacing:.05em; color:var(--mk-rose); margin:0 0 1.8rem;}
+.mk-catch{font-size:clamp(44px, 6.2vw, 86px); font-weight:700; line-height:1.28;
+          letter-spacing:.005em; margin:0 0 2.2rem;}
+.mk-catch .accent{color:var(--mk-rose);}
+.mk-sub{font-size:1.02rem; color:var(--mk-ink-soft); line-height:2.1; margin:0 0 2.8rem;}
+.mk-actions{display:flex; align-items:center; gap:2rem; flex-wrap:wrap;}
+.mk-btn{display:inline-block; background:var(--mk-ink); color:#fff; text-decoration:none;
+        padding:1rem 2.6rem; border-radius:999px; font-size:.95rem;}
+.mk-btn:hover{background:#443a37;}
+.mk-link{text-decoration:none; color:var(--mk-ink); font-size:.95rem;}
+.mk-link:hover{color:var(--mk-rose);}
+
+/* 丸い皿 */
+.mk-visual{display:flex; flex-direction:column; align-items:center;}
+.plate{position:relative; width:min(100%, 520px); aspect-ratio:1/1; border-radius:50%;
+       background:var(--mk-ring); display:grid; place-items:center;}
+.plate-in{position:relative; width:72%; height:72%; border-radius:50%; background:#fffdfc; overflow:hidden;}
+.plate-in img{width:100%; height:100%; object-fit:cover; display:block;}
+.s{position:absolute; border-radius:50%;}
+.s1{width:44%; height:30%; left:8%;  top:30%; background:#ec8b63;}
+.s2{width:11%; height:11%; left:50%; top:30%; background:#d9503c;}
+.s3{width:34%; height:26%; left:52%; top:40%; background:#b89c82;}
+.s4{width:37%; height:27%; left:26%; top:58%; background:#8fae63;}
+.mk-note{font-size:.72rem; color:#9b8f8a; margin:1.4rem 0 0; align-self:flex-end;}
+
+/* 下の案内 */
+.mk-foot{border-top:1px solid var(--mk-line); margin-top:2rem; padding:2.5rem 0 4rem;
+         font-size:.85rem; color:var(--mk-ink-soft); line-height:2;}
+.mk-foot a{color:var(--mk-rose);}
+.mk-lockup{display:flex; align-items:center; gap:1.1rem; margin:1.6rem 0 2rem;}
+.mk-lockup b{font-size:1.5rem; font-weight:700; color:var(--mk-ink);}
+.mk-lockup span{border-left:1px solid var(--mk-line); padding-left:1.1rem; font-weight:600; color:var(--mk-ink);}
+.mk-lockup span i{font-style:normal; color:var(--mk-rose);}
+</style>
+</head>
+<body>
+<div class="preview-bar">検討用のテストページです（案D モック再現）。公開サイトのトップには反映していません。<a href="/preview/catch/">3案を見比べる</a></div>
+
+<header class="mk-header">
+  <div class="mk-wrap">
+    <a class="mk-brand" href="/"><b>BitaP</b><small>BITAP INC.</small></a>
+    <nav class="mk-nav">
+      <a href="/#service">SERVICE</a>
+      <a href="/#story">ABOUT</a>
+      <a href="/#news">JOURNAL</a>
+      <a class="pill" href="/#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<section class="mk-hero">
+  <div class="mk-wrap mk-grid">
+    <div class="mk-copy">
+      <p class="mk-en">Bite then appetite peak</p>
+      <h1 class="mk-catch">よくぼうに、<br><span class="accent">すなおに。</span></h1>
+      <p class="mk-sub">食べたい、を我慢しない。腸活科学で、<br>あなただけの&quot;最高の食事タイム&quot;を設計します。</p>
+      <div class="mk-actions">
+        <a class="mk-btn" href="/#service">事業内容を見る</a>
+        <a class="mk-link" href="/#contact">お問い合わせ →</a>
+      </div>
+    </div>
+    <div class="mk-visual">
+      <div class="plate"><div class="plate-in"><span class="s s1"></span><span class="s s2"></span><span class="s s3"></span><span class="s s4"></span></div></div>
+      <p class="mk-note">※食のビジュアルはイメージ（最終は実写に差し替え）</p>
+    </div>
+  </div>
+</section>
+
+<div class="mk-wrap mk-foot">
+  <div class="mk-lockup"><b>BitaP</b><span>よくぼうに、<i>すなおに。</i></span></div>
+  いただいた画像のとおりに作ったものです。配色・余白・書体・丸い皿・CONTACTのボタンまで寄せています。皿の中身は画像と同じイラストのままです。<br>
+  このページはヘッダーと1画面目だけを作っています。事業内容から下は今の公開サイトのままです。<br>
+  <a href="/preview/catch/">3案（A・B・C）と見比べる</a>　／　<a href="/">いまの公開サイトを見る</a>
+</div>
+</body>
+</html>
