@@ -74,6 +74,15 @@ header.is-open .nav-toggle span:nth-child(3){transform:translateY(-9px) rotate(-
 .hero-en{font-size:.95rem; color:var(--rose); margin-bottom:1.4rem;}
 .hero-tag{font-size:.8rem; color:var(--ink-soft); letter-spacing:.12em; margin-bottom:.5rem;}
 .hero-sub{margin-top:1.8rem; font-size:.92rem; color:var(--ink-soft); line-height:2.1;}
+/* 決め台詞「よくぼうに、すなおに。」（2026-11 案B） */
+.hero-copy h1.hero-catch{font-size:clamp(34px, 5vw, 58px); font-weight:700; line-height:1.4;
+            letter-spacing:.01em; color:var(--ink); margin:.1rem 0 1.5rem; font-family:inherit;}
+.hero-catch .accent{color:var(--rose-deep);}
+.hero-lead{font-size:1.02rem; color:var(--ink); line-height:2.1; margin-bottom:.4rem;}
+@media(max-width:700px){
+  .hero-copy h1.hero-catch{font-size:clamp(30px, 8.6vw, 42px); margin-bottom:1.2rem;}
+  .hero-lead{font-size:.95rem;}
+}
 .hero-actions{display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;}
 .btn{display:inline-block; text-decoration:none; padding:.8rem 1.9rem; border-radius:999px; font-size:.9rem;}
 .btn-fill{background:var(--rose-deep); color:#fff;}
